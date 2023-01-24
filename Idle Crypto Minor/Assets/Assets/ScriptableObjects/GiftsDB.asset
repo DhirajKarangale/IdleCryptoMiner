@@ -1,0 +1,415 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023e9ff5faa44a3499bf935f3ad1f440, type: 3}
+  m_Name: GiftsDB
+  m_EditorClassIdentifier: 
+  gifts:
+  - sprite: {fileID: 754626609, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Apple
+    cost: 1000
+    isPurchased: 1
+  - sprite: {fileID: -115980846, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Rose
+    cost: 4500
+    isPurchased: 1
+  - sprite: {fileID: 1169599255, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Den
+    cost: 5143
+    isPurchased: 1
+  - sprite: {fileID: -1446855023, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Tree
+    cost: 5878
+    isPurchased: 1
+  - sprite: {fileID: 84789990, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Axe
+    cost: 6718
+    isPurchased: 1
+  - sprite: {fileID: 1013953656, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Wooden Chair
+    cost: 7678
+    isPurchased: 1
+  - sprite: {fileID: 706872109, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Bow & Air
+    cost: 8775
+    isPurchased: 1
+  - sprite: {fileID: 503734409, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Sheep
+    cost: 10029
+    isPurchased: 1
+  - sprite: {fileID: 164123040, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Wheel
+    cost: 11462
+    isPurchased: 1
+  - sprite: {fileID: -1940972546, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Sword
+    cost: 13099
+    isPurchased: 1
+  - sprite: {fileID: -1496597610, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Frog Prince
+    cost: 14970
+    isPurchased: 1
+  - sprite: {fileID: 507467473, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
+    name: Tree House
+    cost: 17109
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Farmland
+    cost: 19553
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Rum
+    cost: 22346
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Mud House
+    cost: 25538
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Pencil
+    cost: 29186
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Gold Rings
+    cost: 33355
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Horse
+    cost: 38120
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Cycle
+    cost: 43566
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Puppy
+    cost: 49790
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Starfish
+    cost: 56903
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Lollipop
+    cost: 65032
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Cart
+    cost: 74322
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Beer
+    cost: 84939
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Cigar
+    cost: 97073
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Viking Helmet
+    cost: 110941
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Smiley
+    cost: 126790
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Honey
+    cost: 144903
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Carriage
+    cost: 165603
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Cake
+    cost: 189261
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Backpack
+    cost: 216298
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Guitar
+    cost: 247198
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Tent
+    cost: 282512
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Bigul Wind
+    cost: 322871
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Red Sandal
+    cost: 368995
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Leather Wallet
+    cost: 421709
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Cactus
+    cost: 481953
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Chocolate
+    cost: 550803
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Red Gown
+    cost: 629489
+    isPurchased: 1
+  - sprite: {fileID: 0}
+    name: Magician Cap
+    cost: 719416
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Watch
+    cost: 822190
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Skull
+    cost: 939646
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Cupcake
+    cost: 1073881
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: French Fries
+    cost: 1227293
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Pirate Cap
+    cost: 1402621
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Sofa
+    cost: 1602995
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Bee
+    cost: 1831994
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Teddy in Love
+    cost: 2093707
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Telescope
+    cost: 2392808
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Market Stall
+    cost: 2734638
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Diamond
+    cost: 3125301
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Hammer
+    cost: 3571773
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: High Back Chair
+    cost: 4082026
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Popcorn
+    cost: 4665173
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Crab
+    cost: 5331626
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Baby Tiger
+    cost: 6093287
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Alarm Clock
+    cost: 6963757
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Laser Gun
+    cost: 7958579
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Hand Grenade
+    cost: 9095519
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Octopus
+    cost: 10394879
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Desert Icecream
+    cost: 11879862
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Fish Stall
+    cost: 13576985
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Treasure Map
+    cost: 15516554
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Tea Pot
+    cost: 17733205
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Circus Tent
+    cost: 20266520
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Puffer Fish
+    cost: 23161737
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Meat Shop
+    cost: 26470557
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Lamp
+    cost: 30252065
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Seahorse
+    cost: 34573789
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Igloo
+    cost: 39512902
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Donut
+    cost: 45157602
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Sea Shell Pearl
+    cost: 51608688
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Television
+    cost: 58981358
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Mobile Phone
+    cost: 67407266
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Camera
+    cost: 77036875
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Gaming Console
+    cost: 88042143
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Pirate Telescope
+    cost: 100619592
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Typewriter
+    cost: 114993819
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Rotary Phone
+    cost: 131421507
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Fruit Stall
+    cost: 150196008
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Windmill
+    cost: 171652581
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Gramophone
+    cost: 196174378
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Pirate Ship
+    cost: 224199289
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Skateboard
+    cost: 256227759
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Book of Magic
+    cost: 292831725
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Segway
+    cost: 334664829
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Gold Coin Bag
+    cost: 382474090
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Smartwatch
+    cost: 437113246
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Double Door Fridge
+    cost: 499557995
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Burger
+    cost: 570923423
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Sneakers
+    cost: 652483912
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Tractor
+    cost: 745695899
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Swimmingpool
+    cost: 852223885
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Bunglow
+    cost: 973970154
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Castle
+    cost: 1113108747
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Red Ferrari
+    cost: 1272124282
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Spaceship
+    cost: 1453856322
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Satellite
+    cost: 1661550082
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: Alien Ship
+    cost: 1898914379
+    isPurchased: 0
+  - sprite: {fileID: 0}
+    name: King's Crown
+    cost: 2170187862
+    isPurchased: 0

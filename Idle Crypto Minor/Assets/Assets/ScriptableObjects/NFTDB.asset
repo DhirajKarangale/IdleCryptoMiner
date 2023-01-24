@@ -1,0 +1,375 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e1f573b4951e247849214349ecaecb, type: 3}
+  m_Name: NFTDB
+  m_EditorClassIdentifier: 
+  nfts:
+  - image: {fileID: -547085748, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 0
+    background: 'Greyish Yellow '
+    clothes: Sporty Green
+    eyes: Black Glass
+    hat: Flat Top Hair
+    mouth: Full Dentured Smile
+    cost: 3000
+    name: Idle Ape 7D1
+    isPurchased: 0
+  - image: {fileID: -726699754, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 1
+    background: Cherry Blossom Pink
+    clothes: White Shirt Black Suspender
+    eyes: Bored
+    hat: Black Flat Cap
+    mouth: Closed with Canines
+    cost: 5500
+    name: Idle Ape 7D2
+    isPurchased: 0
+  - image: {fileID: -1772894665, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 2
+    background: Cadet Blue
+    clothes: Green and White Shirt
+    eyes: Blue Glass
+    hat: Red & White Hat
+    mouth: Full Dentured Smile
+    cost: 8000
+    name: Idle Ape 7D3
+    isPurchased: 0
+  - image: {fileID: 1585151560, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 3
+    background: Burlywood
+    clothes: White Tee
+    eyes: Open Eyes
+    hat: Spiky Hair
+    mouth: Tongue Tease
+    cost: 10500
+    name: Idle Ape 7D4
+    isPurchased: 0
+  - image: {fileID: 397162891, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 4
+    background: Lavender
+    clothes: Flowery Pink Shirt
+    eyes: Red & Blue Sunglass
+    hat: Mint Green Cap
+    mouth: Smoking
+    cost: 13000
+    name: Idle Ape 7D5
+    isPurchased: 0
+  - image: {fileID: -532098704, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 5
+    background: Sky Blue
+    clothes: Black Coat
+    eyes: Black VR Glasses
+    hat: Brown Hair
+    mouth: Open Mouth
+    cost: 15500
+    name: Idle Ape 7D6
+    isPurchased: 0
+  - image: {fileID: 1067482474, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 6
+    background: Desert Sand
+    clothes: White Muscle Vest
+    eyes: Angry
+    hat: Green Monkey Cap
+    mouth: Angry
+    cost: 18000
+    name: Idle Ape 7D7
+    isPurchased: 0
+  - image: {fileID: 457682619, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 7
+    background: Chartreuse Yellow
+    clothes: Sporty Pink Red
+    eyes: Blue Glass
+    hat: Flat Top Hair
+    mouth: Full Dentured Smile
+    cost: 20500
+    name: Idle Ape 7D8
+    isPurchased: 0
+  - image: {fileID: -1708161443, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 8
+    background: Lavender
+    clothes: Green Shirt Yellow Suspender
+    eyes: Bored
+    hat: Red Flat Cap
+    mouth: Closed with Canines
+    cost: 23000
+    name: Idle Ape 7D9
+    isPurchased: 0
+  - image: {fileID: -441809080, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 9
+    background: 'Greyish Yellow '
+    clothes: Blue Coat Green Tie
+    eyes: Neon Green VR Glasses
+    hat: Yellowish Brown Hair
+    mouth: Open Mouth
+    cost: 25500
+    name: Idle Ape 7DA
+    isPurchased: 0
+  - image: {fileID: -2992963, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 10
+    background: Sky Blue
+    clothes: Red and White Shirt
+    eyes: Stoned
+    hat: Red Helmet
+    mouth: Full Dentured Smile
+    cost: 28000
+    name: Idle Ape 7DB
+    isPurchased: 0
+  - image: {fileID: 289595775, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 11
+    background: Cherry Blossom Pink
+    clothes: Violet Shirt Red Suspender
+    eyes: Bored
+    hat: Blue Flat Cap
+    mouth: Closed with Canines
+    cost: 30500
+    name: Idle Ape 7DC
+    isPurchased: 0
+  - image: {fileID: -1261105915, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 12
+    background: 'Greyish Yellow '
+    clothes: Blue and Yellow Shirt
+    eyes: Stoned
+    hat: Blue Helmet
+    mouth: Full Dentured Smile
+    cost: 33000
+    name: Idle Ape 7DD
+    isPurchased: 0
+  - image: {fileID: -76645905, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 13
+    background: Cadet Blue
+    clothes: Yellow Muscle Vest
+    eyes: Angry
+    hat: Pink Monkey Cap
+    mouth: Angry
+    cost: 35500
+    name: Idle Ape 7DE
+    isPurchased: 0
+  - image: {fileID: 1594838460, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 14
+    background: Burlywood
+    clothes: Sporty Purple
+    eyes: Black Glass
+    hat: Flat Top Hair with Pink Headphone
+    mouth: Full Dentured Smile
+    cost: 38000
+    name: Idle Ape 7DF
+    isPurchased: 0
+  - image: {fileID: 624415845, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 15
+    background: Chartreuse Yellow
+    clothes: Dark Purple Shirt Blue Suspender
+    eyes: Bored
+    hat: Pink Baseball Cap
+    mouth: Closed with Canines
+    cost: 40500
+    name: Idle Ape 7E0
+    isPurchased: 0
+  - image: {fileID: 167609760, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 16
+    background: Lavender
+    clothes: Green Muscle Vest
+    eyes: Angry
+    hat: Blue Monkey Cap
+    mouth: Angry
+    cost: 43000
+    name: Idle Ape 7E1
+    isPurchased: 0
+  - image: {fileID: -1016617273, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 17
+    background: Greyish Yellow
+    clothes: Pink Coat Yellow Tie
+    eyes: Neon Red & Green VR Glasses
+    hat: Blue Hair
+    mouth: Open Mouth
+    cost: 45500
+    name: Idle Ape 7E2
+    isPurchased: 0
+  - image: {fileID: 1831007478, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 18
+    background: Cherry Blossom Pink
+    clothes: Sporty Blue
+    eyes: Blue Glass
+    hat: Police Cap
+    mouth: Full Dentured Smile
+    cost: 48000
+    name: Idle Ape 7E3
+    isPurchased: 0
+  - image: {fileID: 1979341820, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 19
+    background: Desert Sand
+    clothes: Pink Shirt
+    eyes: Pink Shade Glass
+    hat: Cowboy Hat
+    mouth: Full Dentured Smile
+    cost: 50500
+    name: Idle Ape 7E4
+    isPurchased: 0
+  - image: {fileID: -726076572, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 20
+    background: Sky Blue
+    clothes: Purple Muscle Vest
+    eyes: Angry
+    hat: Pink Monkey Cap
+    mouth: Angry Bubblegum
+    cost: 53000
+    name: Idle Ape 7E5
+    isPurchased: 0
+  - image: {fileID: 1760695730, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 21
+    background: 'Greyish Yellow '
+    clothes: Teal Blue
+    eyes: Neon Glass
+    hat: Fedora Black & Red Cap
+    mouth: Full Dentured Smile
+    cost: 55500
+    name: Idle Ape 7E6
+    isPurchased: 0
+  - image: {fileID: 522881674, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 22
+    background: Lavender
+    clothes: Blue Tee
+    eyes: Sunglass
+    hat: Spiky Hair Pink Headphone
+    mouth: Tongue Tease
+    cost: 58000
+    name: Idle Ape 7E7
+    isPurchased: 0
+  - image: {fileID: -1124929726, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 23
+    background: Cadet Blue
+    clothes: Flowery Purple Shirt
+    eyes: Gold Sunglass
+    hat: Pink Green Cap
+    mouth: Neutral
+    cost: 60500
+    name: Idle Ape 7E8
+    isPurchased: 0
+  - image: {fileID: -847293279, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 24
+    background: Cherry Blossom Pink
+    clothes: Neon & Pink Coat Purple Tie
+    eyes: Blue & Black VR Glasses
+    hat: Purple Hair
+    mouth: Open Mouth
+    cost: 63000
+    name: Idle Ape 7E9
+    isPurchased: 0
+  - image: {fileID: -1289302666, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 25
+    background: Burlywood
+    clothes: Red Black Gradient Tee
+    eyes: VR Smartphone
+    hat: Spiky Hair Green Headphone
+    mouth: Tongue Tease
+    cost: 65500
+    name: Idle Ape 7EA
+    isPurchased: 0
+  - image: {fileID: -1171949768, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 26
+    background: Chartreuse Yellow
+    clothes: Rainbow Shirt
+    eyes: Purple Sunglasses
+    hat: Silver Cap
+    mouth: Neutral
+    cost: 68000
+    name: Idle Ape 7EB
+    isPurchased: 0
+  - image: {fileID: -2067144978, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 27
+    background: Sky Blue
+    clothes: Gold Muscle Vest
+    eyes: Angry
+    hat: Silver Cap
+    mouth: Angry
+    cost: 70500
+    name: Idle Ape 7EC
+    isPurchased: 0
+  - image: {fileID: -1313848229, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 28
+    background: Desert Sand
+    clothes: Sporty Gold
+    eyes: Futuristic Blue Glass
+    hat: Flat Top Hair
+    mouth: Full Dentured Smile
+    cost: 73000
+    name: Idle Ape 7ED
+    isPurchased: 0
+  - image: {fileID: 427954986, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 29
+    background: Chartreuse Yellow
+    clothes: Gold Coat Black Tie
+    eyes: Silver VR Glasses
+    hat: Brown Hair
+    mouth: Open Mouth
+    cost: 75500
+    name: Idle Ape 7EE
+    isPurchased: 0
+  - image: {fileID: 1444583627, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 30
+    background: Cadet Blue
+    clothes: Gold and Silver Shirt
+    eyes: Game Console Glass
+    hat: Silver Hat
+    mouth: Full Dentured Smile
+    cost: 78000
+    name: Idle Ape 7EF
+    isPurchased: 0
+  - image: {fileID: -247771466, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 31
+    background: Lavender
+    clothes: Rainbow Shirt Black Suspender
+    eyes: Bored
+    hat: Pink Flat Cap
+    mouth: Closed with Rainbow Canines
+    cost: 80500
+    name: Idle Ape 7F0
+    isPurchased: 0
+  - image: {fileID: -1091526900, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 32
+    background: Cherry Blossom Pink
+    clothes: Gold Shirt Mint Vest
+    eyes: Blue Sunglasses
+    hat: Brunswick Green Cap
+    mouth: Neutral
+    cost: 83000
+    name: Idle Ape 7F1
+    isPurchased: 0
+  - image: {fileID: -676327302, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 33
+    background: Burlywood
+    clothes: Sporty Gold
+    eyes: Blue Glass
+    hat: Olive White Cap
+    mouth: Full Dentured Smile
+    cost: 85500
+    name: Idle Ape 7F2
+    isPurchased: 0
+  - image: {fileID: -769486846, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 34
+    background: Lavender
+    clothes: Gold Tee
+    eyes: Green & Red
+    hat: Spiky Hair
+    mouth: Tongue Tease
+    cost: 88000
+    name: Idle Ape 7F3
+    isPurchased: 0
+  - image: {fileID: -1986115883, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
+    index: 35
+    background: Sky Blue
+    clothes: Rainbow Pink Coat & White Shirt
+    eyes: Rainbow VR Glasses
+    hat: Pink Hair
+    mouth: Open Mouth
+    cost: 90500
+    name: Idle Ape 7F4
+    isPurchased: 0
