@@ -23,6 +23,9 @@ MonoBehaviour:
     cost: 3000
     name: Idle Ape 7D1
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -726699754, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 1
     background: Cherry Blossom Pink
@@ -33,6 +36,9 @@ MonoBehaviour:
     cost: 5500
     name: Idle Ape 7D2
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -1772894665, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 2
     background: Cadet Blue
@@ -43,6 +49,9 @@ MonoBehaviour:
     cost: 8000
     name: Idle Ape 7D3
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 1585151560, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 3
     background: Burlywood
@@ -53,6 +62,9 @@ MonoBehaviour:
     cost: 10500
     name: Idle Ape 7D4
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 397162891, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 4
     background: Lavender
@@ -63,6 +75,9 @@ MonoBehaviour:
     cost: 13000
     name: Idle Ape 7D5
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -532098704, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 5
     background: Sky Blue
@@ -73,6 +88,9 @@ MonoBehaviour:
     cost: 15500
     name: Idle Ape 7D6
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 1067482474, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 6
     background: Desert Sand
@@ -83,6 +101,9 @@ MonoBehaviour:
     cost: 18000
     name: Idle Ape 7D7
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 457682619, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 7
     background: Chartreuse Yellow
@@ -93,6 +114,9 @@ MonoBehaviour:
     cost: 20500
     name: Idle Ape 7D8
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -1708161443, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 8
     background: Lavender
@@ -103,6 +127,9 @@ MonoBehaviour:
     cost: 23000
     name: Idle Ape 7D9
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -441809080, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 9
     background: 'Greyish Yellow '
@@ -113,6 +140,9 @@ MonoBehaviour:
     cost: 25500
     name: Idle Ape 7DA
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -2992963, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 10
     background: Sky Blue
@@ -123,6 +153,9 @@ MonoBehaviour:
     cost: 28000
     name: Idle Ape 7DB
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 289595775, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 11
     background: Cherry Blossom Pink
@@ -133,6 +166,9 @@ MonoBehaviour:
     cost: 30500
     name: Idle Ape 7DC
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -1261105915, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 12
     background: 'Greyish Yellow '
@@ -143,6 +179,9 @@ MonoBehaviour:
     cost: 33000
     name: Idle Ape 7DD
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -76645905, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 13
     background: Cadet Blue
@@ -153,6 +192,9 @@ MonoBehaviour:
     cost: 35500
     name: Idle Ape 7DE
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 1594838460, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 14
     background: Burlywood
@@ -163,6 +205,9 @@ MonoBehaviour:
     cost: 38000
     name: Idle Ape 7DF
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 624415845, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 15
     background: Chartreuse Yellow
@@ -173,6 +218,9 @@ MonoBehaviour:
     cost: 40500
     name: Idle Ape 7E0
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 167609760, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 16
     background: Lavender
@@ -183,6 +231,9 @@ MonoBehaviour:
     cost: 43000
     name: Idle Ape 7E1
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -1016617273, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 17
     background: Greyish Yellow
@@ -193,6 +244,9 @@ MonoBehaviour:
     cost: 45500
     name: Idle Ape 7E2
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 1831007478, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 18
     background: Cherry Blossom Pink
@@ -203,6 +257,9 @@ MonoBehaviour:
     cost: 48000
     name: Idle Ape 7E3
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 1979341820, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 19
     background: Desert Sand
@@ -213,6 +270,9 @@ MonoBehaviour:
     cost: 50500
     name: Idle Ape 7E4
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -726076572, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 20
     background: Sky Blue
@@ -223,6 +283,9 @@ MonoBehaviour:
     cost: 53000
     name: Idle Ape 7E5
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 1760695730, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 21
     background: 'Greyish Yellow '
@@ -233,6 +296,9 @@ MonoBehaviour:
     cost: 55500
     name: Idle Ape 7E6
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 522881674, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 22
     background: Lavender
@@ -243,6 +309,9 @@ MonoBehaviour:
     cost: 58000
     name: Idle Ape 7E7
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -1124929726, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 23
     background: Cadet Blue
@@ -253,6 +322,9 @@ MonoBehaviour:
     cost: 60500
     name: Idle Ape 7E8
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -847293279, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 24
     background: Cherry Blossom Pink
@@ -263,6 +335,9 @@ MonoBehaviour:
     cost: 63000
     name: Idle Ape 7E9
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -1289302666, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 25
     background: Burlywood
@@ -273,6 +348,9 @@ MonoBehaviour:
     cost: 65500
     name: Idle Ape 7EA
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -1171949768, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 26
     background: Chartreuse Yellow
@@ -283,6 +361,9 @@ MonoBehaviour:
     cost: 68000
     name: Idle Ape 7EB
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -2067144978, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 27
     background: Sky Blue
@@ -293,6 +374,9 @@ MonoBehaviour:
     cost: 70500
     name: Idle Ape 7EC
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -1313848229, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 28
     background: Desert Sand
@@ -303,6 +387,9 @@ MonoBehaviour:
     cost: 73000
     name: Idle Ape 7ED
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 427954986, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 29
     background: Chartreuse Yellow
@@ -313,6 +400,9 @@ MonoBehaviour:
     cost: 75500
     name: Idle Ape 7EE
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: 1444583627, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 30
     background: Cadet Blue
@@ -323,6 +413,9 @@ MonoBehaviour:
     cost: 78000
     name: Idle Ape 7EF
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -247771466, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 31
     background: Lavender
@@ -333,6 +426,9 @@ MonoBehaviour:
     cost: 80500
     name: Idle Ape 7F0
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -1091526900, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 32
     background: Cherry Blossom Pink
@@ -343,6 +439,9 @@ MonoBehaviour:
     cost: 83000
     name: Idle Ape 7F1
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -676327302, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 33
     background: Burlywood
@@ -353,6 +452,9 @@ MonoBehaviour:
     cost: 85500
     name: Idle Ape 7F2
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -769486846, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 34
     background: Lavender
@@ -363,6 +465,9 @@ MonoBehaviour:
     cost: 88000
     name: Idle Ape 7F3
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0
   - image: {fileID: -1986115883, guid: d9aca8b05a745d548a4edf1e9be0f0d6, type: 3}
     index: 35
     background: Sky Blue
@@ -373,3 +478,6 @@ MonoBehaviour:
     cost: 90500
     name: Idle Ape 7F4
     isPurchased: 0
+    mine: 100
+    stackTime: 72000
+    stakingCost: 0

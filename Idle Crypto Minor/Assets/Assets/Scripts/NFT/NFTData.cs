@@ -13,4 +13,7 @@ public class NFTData
     public int cost;
     public string name;
     public bool isPurchased;
+    public float mine;
+    public double stackTime;
+    public int stakingCost;
 }

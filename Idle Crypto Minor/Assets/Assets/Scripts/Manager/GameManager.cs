@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] internal CurrencyManager currencyManager;
     [SerializeField] internal NFTManager nftManager;
     [SerializeField] internal RepareManager repareManager;
+    [SerializeField] internal Wallet wallet;
 
     [SerializeField] GameObject objExit;
     private SoundManager soundManager;
@@ -30,7 +31,7 @@ public class GameManager : Singleton<GameManager>
         {
             return leaderboard.isActive || netWorth.isActive || netWorth.isExtraActive || dailyRewards.isActive || convert.isActive ||
         map.isActive || map.isExtraActive || menu.isActive || offlineEarnings.isActive || SoundManager.instance.isActive ||
-        xReward.isActive || upgrade.isActive || nftManager.isActive;
+        xReward.isActive || upgrade.isActive || nftManager.isActive || wallet.isActive;
         }
     }
 
@@ -52,8 +53,10 @@ public class GameManager : Singleton<GameManager>
     {
         while (true)
         {
+            //Debug.Log("checking load"+roomManager.rooms.Count);
+
             yield return null;
-            if (roomManager.roomCount >= 1)
+            if (roomManager.rooms.Count >= 1)
             {
                 Loading.instance.Active(false);
                 yield break;
@@ -82,6 +85,7 @@ public class GameManager : Singleton<GameManager>
             xReward.ActiveButton(false);
             upgrade.ActiveButton(false);
             nftManager.BackButton();
+            wallet.ActiveButton(false);
         }
         else
         {

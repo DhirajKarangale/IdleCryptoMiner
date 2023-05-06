@@ -149,7 +149,7 @@ public class RewardBase : MonoBehaviour
 
     public virtual void GetReward(int scriptId)
     {
-
+        Debug.Log("Reward Received in Ad");
     }
 
     public virtual void RewardCancled()

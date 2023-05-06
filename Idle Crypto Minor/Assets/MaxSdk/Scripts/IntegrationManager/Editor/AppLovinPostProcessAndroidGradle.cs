@@ -27,8 +27,15 @@ namespace AppLovinMax.Scripts.IntegrationManager.Editor
             // On Unity 2019.3+, the path returned is the path to the unityLibrary's module.
             // The AppLovin Quality Service buildscript closure related lines need to be added to the root build.gradle file.
             var rootGradleBuildFilePath = Path.Combine(path, "../build.gradle");
+#if UNITY_2022_2_OR_NEWER
+            if (!AddPluginToRootGradleBuildFile(rootGradleBuildFilePath)) return;
+            
+            var rootSettingsGradleFilePath = Path.Combine(path, "../settings.gradle");
+            if (!AddAppLovinRepository(rootSettingsGradleFilePath)) return;
+#else
             var buildScriptChangesAdded = AddQualityServiceBuildScriptLines(rootGradleBuildFilePath);
             if (!buildScriptChangesAdded) return;
+#endif
 
             // The plugin needs to be added to the application module (named launcher)
             var applicationGradleBuildFilePath = Path.Combine(path, "../launcher/build.gradle");

@@ -78,6 +78,7 @@ public class NFTBuy : MonoBehaviour
             imgPurchaseCoin.material = null;
         }
 
+        Debug.Log("NFT Object");
         obj.SetActive(true);
         objScrollView.SetActive(false);
     }
@@ -87,7 +88,8 @@ public class NFTBuy : MonoBehaviour
         soundManager.PlaySound(soundManager.clipHardware);
         currencyManager.ChangeFiat(-nftData.cost, nftManager.txtFiat.transform.position, buttonPurchase.transform.position);
         nftData.isPurchased = true;
-        nftManager.nftDB.PurchasedItem(index);
+        //nftManager.nftDB.PurchasedItem(index);
+        nftData.isPurchased = true;
         nftManager.UpdateNFTStatus();
         ActiveButton();
     }

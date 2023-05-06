@@ -26,7 +26,7 @@ public class CurrencyManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             fiat += 1000;
             OnFiatChanged?.Invoke(fiat);
@@ -34,7 +34,7 @@ public class CurrencyManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            fiat -= 10000;
+            fiat = 0;
             OnFiatChanged?.Invoke(fiat);
         }
 

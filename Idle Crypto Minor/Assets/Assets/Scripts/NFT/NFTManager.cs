@@ -2,15 +2,30 @@ using UnityEngine;
 
 public class NFTManager : ScreenBase
 {
+    
     [SerializeField] internal TMPro.TMP_Text txtFiat;
     [SerializeField] internal NFTDB nftDB;
-    [SerializeField] NFTBuy nftBuy;
+    //[SerializeField] NFTBuy nftBuy;
+    [SerializeField] NFTNotMined nftNotMined;
     [SerializeField] NFT[] nftS;
     private CurrencyManager currencyManager;
     private ConvertBTC convert;
 
     private void OnEnable()
     {
+        if (!PlayerPrefs.HasKey("SaveNewNFTData"))
+        {
+            for (int i = 0; i < nftDB.itemCount; i++)
+            {
+                nftDB.nfts[i].mine = 100;
+                nftDB.nfts[i].stackTime = 72000;
+            }
+            PlayerPrefs.SetInt("SaveNewNFTData", 1);
+
+            // UnityEditor.EditorUtility.SetDirty(nftDB);
+            // UnityEditor.AssetDatabase.SaveAssets();
+        }
+
         currencyManager = GameManager.instance.currencyManager;
         convert = GameManager.instance.convert;
 
@@ -44,7 +59,7 @@ public class NFTManager : ScreenBase
     {
         for (int i = 0; i < nftDB.itemCount; i++)
         {
-            nftS[i].Status(nftDB.nfts[i].isPurchased);
+            nftS[i].UpdaetStatus();
         }
     }
 
@@ -65,9 +80,9 @@ public class NFTManager : ScreenBase
 
     public void BackButton()
     {
-        if (nftBuy.obj.activeInHierarchy)
+        if (nftNotMined.obj.activeInHierarchy)
         {
-            nftBuy.ActiveButton();
+            nftNotMined.BackButton();
         }
         else
         {

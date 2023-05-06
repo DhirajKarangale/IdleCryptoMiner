@@ -47,7 +47,6 @@ public class Lobby : MonoBehaviour
         }
         else
         {
-            // Message.instance.Show("Online", Color.green);
             if (!isLogginTried && PlayerPrefs.HasKey("FBToken")) AutoLogin();
             else DefaultScreen();
         }
@@ -134,7 +133,6 @@ public class Lobby : MonoBehaviour
         else
         {
             DefaultScreen();
-            Debug.Log("User cancelled login");
         }
     }
 
@@ -180,7 +178,7 @@ public class Lobby : MonoBehaviour
 
     private void OnError(PlayFabError error)
     {
-        Debug.Log("Playfab Error : " + error);
+       // Debug.Log("Playfab Error : " + error);
     }
 
     private void LoadGame()

@@ -5,6 +5,7 @@ using System.Collections;
 
 public class NetWorth : RewardBase
 {
+    
     [SerializeField] GameObject obj;
     [SerializeField] GiftsDB giftsDB;
     [SerializeField] NFTDB nftDB;
@@ -31,7 +32,7 @@ public class NetWorth : RewardBase
     [SerializeField] RectTransform collection;
 
     [Header("Content Items")]
-    [SerializeField] NetWorthItem[] hardwareItem;
+    [SerializeField] NetWorthItem[] hardwareItem=new NetWorthItem[4];
     [SerializeField] NetWorthItem[] nftItem;
     [SerializeField] NetWorthItem[] collectionItem;
 
@@ -167,7 +168,7 @@ public class NetWorth : RewardBase
             txtNetNextReward.text = "All Rewards Achieved";
         }
         else
-        {
+        {           
             sliderNet.value = (float)netWorth / (float)giftsDB.Cost(nextGift);
             imgNetReward.sprite = giftsDB.Image(nextGift);
             txtNetNetWorth.text = netWorth.ToString();

@@ -29,3 +29,4 @@ MonoBehaviour:
   userTrackingUsageDescriptionZhHant: 
   adMobAndroidAppId: 
   adMobIosAppId: 
+  showInternalSettingsInIntegrationManager: 0

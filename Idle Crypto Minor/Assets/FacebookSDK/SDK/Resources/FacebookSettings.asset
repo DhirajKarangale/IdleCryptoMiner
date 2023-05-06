@@ -24,8 +24,7 @@ MonoBehaviour:
   status: 1
   xfbml: 0
   frictionlessRequests: 1
-  androidKeystorePath: E:\Game\Projects\Idel Crypto Miner\idlecryptominor\Idle Crypto
-    Minor\KeyStore\user.keystore
+  androidKeystorePath: E:\Game\Projects\JungaliJumper3D\Jungali Jumper 3D\KeyStore\user.keystore
   iosURLSuffix: 
   appLinkSchemes:
   - list: []

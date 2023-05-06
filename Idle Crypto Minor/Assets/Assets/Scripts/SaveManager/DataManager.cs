@@ -39,8 +39,9 @@ public class DataManager : MonoBehaviour
 
     private void SetRoomData(DataItems dataItems)
     {
-        if (dataItems == null)
+        if (dataItems == null || dataItems.roomData.Count==0)
         {
+            //Debug.Log("set Room data");
             RoomData roomData = new RoomData();
             roomData.graphicCard = 1;
             roomData.algorithm = 1;
@@ -78,6 +79,51 @@ public class DataManager : MonoBehaviour
 
         roomDatas = dataItems.roomData;
     }
+
+//     private void SetRoomData(DataItems dataItems)
+// {
+//     if (dataItems == null)
+//     {
+//         RoomData roomData = new RoomData();
+//         roomData.graphicCard = 1;
+//         roomData.algorithm = 1;
+//         roomData.coolingDevice = 1;
+//         roomData.cable = 1;
+
+//         roomData.repareAlgorithm = new double[6] { 0, 0, 0, 0, 0, 0 };
+//         roomData.repareGraphicCard = new double[6] { 0, 0, 0, 0, 0, 0 };
+//         roomData.repareCoolingDevice = new double[6] { 0, 0, 0, 0, 0, 0 };
+
+//         roomDatas.Add(roomData);
+//     }
+//     else
+//     {
+//         for (int i = 0; i < dataItems.roomData.Count; i++)
+//         {
+//             RoomData roomData = new RoomData();
+
+//             // Set room data only if the index is within bounds
+//             if (i < roomDatas.Count)
+//             {
+//                 roomData = roomDatas[i];
+//             }
+//             else
+//             {
+//                 roomDatas.Add(roomData);
+//             }
+
+//             roomData.graphicCard = dataItems.roomData[i].graphicCard;
+//             roomData.algorithm = dataItems.roomData[i].algorithm;
+//             roomData.coolingDevice = dataItems.roomData[i].coolingDevice;
+//             roomData.cable = dataItems.roomData[i].cable;
+
+//             roomData.repareAlgorithm = new double[6] { 0, 0, 0, 0, 0, 0 };
+//             roomData.repareGraphicCard = new double[6] { 0, 0, 0, 0, 0, 0 };
+//             roomData.repareCoolingDevice = new double[6] { 0, 0, 0, 0, 0, 0 };
+//         }
+//     }
+// }
+
 
     private void GetRoomsData()
     {

@@ -3,7 +3,20 @@ guid: 05dbf36e6ef9cec4c8bf397ac34b7a90
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - adButton: {instanceID: 0}
+  - txtCost: {instanceID: 0}
+  - txtTimer: {instanceID: 0}
+  - txtNewRoom: {instanceID: 0}
+  - objLock: {instanceID: 0}
+  - imgCostBG: {instanceID: 0}
+  - imgCoin: {instanceID: 0}
+  - buttonAddRoom: {instanceID: 0}
+  - sliderTimer: {instanceID: 0}
+  - locked: {instanceID: 0}
+  - unlocked: {instanceID: 0}
+  - roomPrefab: {fileID: -4750134657059424228, guid: 191d5f65acf276542b90471880fef2dc, type: 3}
+  - roomContent: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

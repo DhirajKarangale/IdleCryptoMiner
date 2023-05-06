@@ -151,7 +151,7 @@ public class SaveManager : MonoBehaviour
             DataItems dataItems = JsonUtility.FromJson<DataItems>(fileContents);
             dataManager.SetData(dataItems);
             isCloudDataLoaded = false;
-            // Debug.Log("Local Data Loaded");
+           // Debug.Log("Local Data Loaded");
         }
         else
         {

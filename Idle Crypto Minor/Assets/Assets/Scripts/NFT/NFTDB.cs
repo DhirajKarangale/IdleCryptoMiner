@@ -15,8 +15,4 @@ public class NFTDB : ScriptableObject
         return nfts[index];
     }
 
-    public void PurchasedItem(int index)
-    {
-        nfts[index].isPurchased = true;
-    }
 }

@@ -10,7 +10,7 @@ public class MaxSdkLogger
     /// </summary>
     public static void UserDebug(string message)
     {
-        Debug.Log("Debug [" + SdkTag + "] " + message);
+       // Debug.Log("Debug [" + SdkTag + "] " + message);
     }
     
     /// <summary>
@@ -22,7 +22,7 @@ public class MaxSdkLogger
     {
         if (MaxSdk.IsVerboseLoggingEnabled())
         {
-            Debug.Log("Debug [" + SdkTag + "] " + message);
+            //Debug.Log("Debug [" + SdkTag + "] " + message);
         }
     }
     
@@ -31,7 +31,7 @@ public class MaxSdkLogger
     /// </summary>
     public static void UserWarning(string message)
     {
-        Debug.LogWarning("Warning [" + SdkTag + "] " + message);
+        //Debug.LogWarning("Warning [" + SdkTag + "] " + message);
     }
     
     /// <summary>
@@ -43,7 +43,7 @@ public class MaxSdkLogger
     {
         if (MaxSdk.IsVerboseLoggingEnabled())
         {
-            Debug.LogWarning("Warning [" + SdkTag + "] " + message);
+           // Debug.LogWarning("Warning [" + SdkTag + "] " + message);
         }
     }
     
@@ -52,7 +52,7 @@ public class MaxSdkLogger
     /// </summary>
     public static void UserError(string message)
     {
-        Debug.LogError("Error [" + SdkTag + "] " + message);
+       // Debug.LogError("Error [" + SdkTag + "] " + message);
     }
     
     /// <summary>
@@ -64,7 +64,7 @@ public class MaxSdkLogger
     {
         if (MaxSdk.IsVerboseLoggingEnabled())
         {
-            Debug.LogError("Error [" + SdkTag + "] " + message);
+          //  Debug.LogError("Error [" + SdkTag + "] " + message);
         }
     }
 }

@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -483,7 +495,7 @@ TextureImporter:
         height: 76
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 60, y: 0, z: 60, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -542,11 +554,11 @@ TextureImporter:
         serializedVersion: 2
         x: 676
         y: 1860
-        width: 336
+        width: 337
         height: 100
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 60, y: 0, z: 60, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -882,7 +894,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 30, y: 30, z: 30, w: 30}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1511,7 +1523,7 @@ TextureImporter:
         width: 36
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1519,6 +1531,27 @@ TextureImporter:
       bones: []
       spriteID: 0c5b030a0a0d1764089b2aced6f24da9
       internalID: 1799739533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritemain_67
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 1686
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e68da6b44771e94992f6c48091e7675
+      internalID: -544153041
       vertices: []
       indices: 
       edges: []
@@ -1588,6 +1621,7 @@ TextureImporter:
       spritemain_48: 1536731894
       spritemain_0: 135839534
       spritemain_56: -1394587278
+      spritemain_67: -544153041
       spritemain_10: 403322527
       spritemain_22: 1726957501
       spritemain_55: 651354667

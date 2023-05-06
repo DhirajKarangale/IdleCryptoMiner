@@ -3,7 +3,16 @@ guid: d9f920b70ce07f341bf9a1f251b72b03
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - repareAlgo: {instanceID: 0}
+  - repareGraphicCard: {instanceID: 0}
+  - repareCoolingDevice: {instanceID: 0}
+  - algorithm: {instanceID: 0}
+  - graphicCard: {instanceID: 0}
+  - coolingDevice: {instanceID: 0}
+  - cable: {instanceID: 0}
+  - objUpgradeButton: {instanceID: 0}
+  - objMxTick: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
