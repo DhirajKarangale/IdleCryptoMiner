@@ -1,39 +1,16 @@
 # IdleCryptoMiner
-2D android game
 
 
-GitHub : https://github.com/DhirajKarangale/IdleCryptoMiner.git
+⦿ Developed cross-platform mobile and web applications aimed at providing children with interactive learning experiences through simple games.
 
+⦿ Utilized C# programming language to implement game mechanics and functionalities, ensuring a user-friendly and engaging educational environment.
 
-GitLab :- https://gitlab.com/lifeofcardsart/idlecryptominor.git
+⦿ Integrated AWS API services into the applications, leveraging cloud-based solutions for data storage, authentication, and real-time updates.
 
-FB 
-Ascess Token :- GGQVlaZA0w2VnJaU2lQTXg4ZAUpTVldLVnFfbkFxSmtUTktZAcVRySVZACSUY3ZAXRkX0JhMzFGd09WWFE0cnItanJ1a19ab290UHc2OFhicWYyZAzBxMkJKZAHFFNlFCOWpPTVpQczcteDdTYl8xbEoyb0Nqa0lweUpkaVl6T1g3NmVNZAjVsUQZDZD
-App Name :- Idle Crypto Miner
-App Id :- 3316815951936490
-Client Token :- 10c98d5223ce7c599dec32f0d67447b1
+⦿ Collaborated with a team of designers, educators, and fellow developers to create age-appropriate content and intuitive user interfaces.
 
+⦿ Ensured compatibility and seamless functionality across different devices and platforms, including iOS, Android, and web browsers.
 
-Playfab
-Id :- 55B2F
-Secret Key :- E8AZ114TYAFQ4HHN4J5JNP3HZSSHNWX95IZFYMRSFB95RIPRSN
+⦿ Implemented gamification techniques to enhance the learning experience, incorporating rewards, progress tracking, and interactive elements.
 
-
-AdMob
-App Id :- ca-app-pub-2251287037980958~3072961640
-
-KeyStore
-Pass :- Playhobo
-Alias :- idle crypto miner
-Pass :- Playhobo
-
-SHA Keys
-MD5:  37:22:10:AE:98:3D:B3:F9:3F:08:AB:0A:ED:2E:BD:D7
-SHA1: F3:C1:20:B8:FB:42:B1:29:8E:1E:C3:0D:11:15:9A:4D:8A:B8:40:27
-SHA256: 22:35:3A:44:07:E4:E5:FC:97:88:0A:7A:EF:01:0D:D2:44:92:24:89:BC:1A:C1:D4:B9:8E:70:E3:53:0E:45:67
-
-SHA Converted
-SHA1 Base64 88EguPtCsSmOHsMNERWaTYq4QCc=
-SHA256 Base64 IjU6RAfk5fyXiAp67wEN0kSSJIm8GsHUuY5w41MORWc=
-HashKey Dpvkd5OoiJFfM9+kcEUG9x13JqI=
-
+⦿ Conducted thorough testing and debugging to identify and resolve any technical issues, ensuring smooth performance and stability.
