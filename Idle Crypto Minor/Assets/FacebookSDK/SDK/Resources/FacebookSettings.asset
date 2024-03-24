@@ -20,14 +20,14 @@ MonoBehaviour:
   appLabels:
   - Idle Crypto Miner
   cookie: 1
-  logging: 1
+  logging: 0
   status: 1
   xfbml: 0
   frictionlessRequests: 1
-  androidKeystorePath: E:\Game\Projects\JungaliJumper3D\Jungali Jumper 3D\KeyStore\user.keystore
+  androidKeystorePath: E:\Game\Projects\idlecryptominor\Idle Crypto Minor\KeyStore\user.keystore
   iosURLSuffix: 
   appLinkSchemes:
   - list: []
   uploadAccessToken: 
   autoLogAppEventsEnabled: 1
-  advertiserIDCollectionEnabled: 1
+  advertiserIDCollectionEnabled: 0

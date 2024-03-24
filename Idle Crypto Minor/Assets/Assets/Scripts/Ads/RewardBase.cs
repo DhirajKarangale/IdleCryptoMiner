@@ -1,155 +1,71 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
+using GoogleMobileAds.Api;
 
 public class RewardBase : MonoBehaviour
 {
     [SerializeField] internal Button adButton;
 
+    private string rewardedId = "ca-app-pub-2251287037980958/9785155328";
+    private RewardedAd rewardedAd;
     private int scriptId;
-    private const string adUnitId = "5163de406d51626b";
-    private int retryAttempt;
 
 
-    private void Awake()
+    private void Start()
     {
-        this.scriptId = -1;
-        InitializeAds();
-        // SuscribingEvents();
-    }
-
-    private void OnEnable()
-    {
-        SuscribingEvents();
-    }
-
-    private void OnDisable()
-    {
-        UnSuscribeEvents();
-    }
-
-    private void OnDestroy()
-    {
-        UnSuscribeEvents();
-    }
-
-
-    private void InitializeAds()
-    {
-        MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) =>
-       {
-           // AppLovin SDK is initialized, start loading ads
-       };
-
-        MaxSdk.SetSdkKey("PDb4ao8r3T2UIx1skVgJn4_nUGgFdmIiz2oylI8TkF94fImXfuPG0MwMlK4lDcvMTtoKH5td6nngXW94F_HgTn");
-        MaxSdk.SetUserId("USER_ID");
-        MaxSdk.InitializeSdk();
-
-        // MaxSdk.ShowRewardedAd(adUnitId, "MY_REWARDED_PLACEMENT");
-    }
-
-    private void SuscribingEvents()
-    {
-        // Attach callback
-        MaxSdkCallbacks.Rewarded.OnAdLoadedEvent += OnRewardedAdLoadedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdLoadFailedEvent += OnRewardedAdLoadFailedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdDisplayedEvent += OnRewardedAdDisplayedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdClickedEvent += OnRewardedAdClickedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent += OnRewardedAdRevenuePaidEvent;
-        MaxSdkCallbacks.Rewarded.OnAdHiddenEvent += OnRewardedAdHiddenEvent;
-        MaxSdkCallbacks.Rewarded.OnAdDisplayFailedEvent += OnRewardedAdFailedToDisplayEvent;
-        MaxSdkCallbacks.Rewarded.OnAdReceivedRewardEvent += OnRewardedAdReceivedRewardEvent;
-
-        // Load the first rewarded ad
-        LoadRewardedAd();
-    }
-
-    private void UnSuscribeEvents()
-    {
-        MaxSdkCallbacks.Rewarded.OnAdLoadedEvent -= OnRewardedAdLoadedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdLoadFailedEvent -= OnRewardedAdLoadFailedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdDisplayedEvent -= OnRewardedAdDisplayedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdClickedEvent -= OnRewardedAdClickedEvent;
-        MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent -= OnRewardedAdRevenuePaidEvent;
-        MaxSdkCallbacks.Rewarded.OnAdHiddenEvent -= OnRewardedAdHiddenEvent;
-        MaxSdkCallbacks.Rewarded.OnAdDisplayFailedEvent -= OnRewardedAdFailedToDisplayEvent;
-        MaxSdkCallbacks.Rewarded.OnAdReceivedRewardEvent -= OnRewardedAdReceivedRewardEvent;
-    }
-
-    private void LoadRewardedAd()
-    {
-        MaxSdk.LoadRewardedAd(adUnitId);
-    }
-
-    private void OnRewardedAdLoadedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
-    {
-        // Rewarded ad is ready for you to show. MaxSdk.IsRewardedAdReady(adUnitId) now returns 'true'.
-
-        // Reset retry attempt
-        retryAttempt = 0;
-    }
-
-    private void OnRewardedAdLoadFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo)
-    {
-        // Rewarded ad failed to load 
-        // AppLovin recommends that you retry with exponentially higher delays, up to a maximum delay (in this case 64 seconds).
-
-        retryAttempt++;
-        double retryDelay = Math.Pow(2, Math.Min(6, retryAttempt));
-
-        Invoke("LoadRewardedAd", (float)retryDelay);
-    }
-
-    private void OnRewardedAdDisplayedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo) { }
-
-    private void OnRewardedAdFailedToDisplayEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo, MaxSdkBase.AdInfo adInfo)
-    {
-        // Rewarded ad failed to display. AppLovin recommends that you load the next ad.
-        LoadRewardedAd();
-    }
-
-    private void OnRewardedAdClickedEvent(string adUnitId, MaxSdkBase.AdInfo adInfo) { }
-
-    private void OnRewardedAdHiddenEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
-    {
-        // Rewarded ad is hidden. Pre-load the next ad
-        LoadRewardedAd();
-    }
-
-    private void OnRewardedAdReceivedRewardEvent(string adUnitId, MaxSdk.Reward reward, MaxSdkBase.AdInfo adInfo)
-    {
-        // The rewarded ad displayed and the user should receive the reward.
-        GetReward(scriptId);
         scriptId = -1;
+        Invoke(nameof(LoadRewarded), 3);
     }
 
-    private void OnRewardedAdRevenuePaidEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
+
+    private void LoadRewarded()
     {
-        // Ad revenue paid. Use this callback to track user revenue.
+        if (rewardedAd != null)
+        {
+            rewardedAd.Destroy();
+            rewardedAd = null;
+        }
+
+        var adRequest = new AdRequest();
+        adRequest.Keywords.Add("unity-admob-sample");
+
+        RewardedAd.Load(rewardedId, adRequest, (RewardedAd ad, LoadAdError error) =>
+        {
+            if (error != null || ad == null) 
+            {
+                return;
+            }
+
+            rewardedAd = ad;
+        });
     }
 
-
-
-
+    private void Reward()
+    {
+        GetReward(scriptId);
+        Invoke(nameof(LoadRewarded), 2);
+    }
 
     public virtual void ShowAd(int id)
     {
-        this.scriptId = -1;
-        if (MaxSdk.IsRewardedAdReady(adUnitId))
+        scriptId = -1;
+        if (rewardedAd != null && rewardedAd.CanShowAd())
         {
-            this.scriptId = id;
-            MaxSdk.ShowRewardedAd(adUnitId);
-            retryAttempt = 0;
+            rewardedAd.Show((Reward reward) =>
+            {
+                scriptId = id;
+                Reward();
+            });
         }
         else
         {
-            Message.instance.Show("Ads are not ready try again", Color.red);
+            LoadRewarded();
         }
     }
 
-    public virtual void GetReward(int scriptId)
+    public virtual void GetReward(int id)
     {
-        Debug.Log("Reward Received in Ad");
+
     }
 
     public virtual void RewardCancled()

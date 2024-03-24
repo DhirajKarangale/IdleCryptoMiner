@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "79XKIJAYY5MNFEUK",
+    "m_SelectedDeviceId": "4a74c31d",
     "m_SelectedPackage": {
-        "deviceId": "79XKIJAYY5MNFEUK",
-        "name": "com.playhobo.idlecryptominer",
-        "processId": 16484,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,12 @@
             "deviceId": "79XKIJAYY5MNFEUK",
             "name": "com.playhobo.idlecryptominer",
             "processId": 16484,
+            "exited": false
+        },
+        {
+            "deviceId": "65e27542",
+            "name": "com.mi.android.globallauncher",
+            "processId": 18259,
             "exited": false
         }
     ],

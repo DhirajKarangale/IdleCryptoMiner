@@ -1,31 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using GoogleMobileAds.Api;
 
 public class ADS : MonoBehaviour
 {
-    string bannerAdUnitId = "5eff39d21dfc354d"; // Retrieve the ID from your account
-        Color backgroundColor = new Color(0x3C / 255f, 0x50 / 255f, 0x6F / 255f, 0f);
+    private string bannerId = "ca-app-pub-2251287037980958/9234437083";
+    private BannerView bannerView;
+    private bool isBanner;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
-        MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) =>
+        isBanner = false;
+
+        MobileAds.RaiseAdEventsOnUnityMainThread = true;
+        MobileAds.Initialize(initStatus => { });
+        // LoadBanner();
+    }
+
+    private void LoadBanner()
+    {
+        CreateBannerView();
+        if (bannerView == null) CreateBannerView();
+
+        var adRequest = new AdRequest();
+        adRequest.Keywords.Add("unity-admob-sample");
+
+        bannerView.LoadAd(adRequest);
+        HideBanner();
+    }
+
+    private void CreateBannerView()
+    {
+        if (bannerView != null) DestroyBanner();
+        bannerView = new BannerView(bannerId, AdSize.Banner, AdPosition.Bottom);
+    }
+
+    private void DestroyBanner()
+    {
+        if (bannerView != null)
         {
-            
-            // AppLovin SDK is initialized, start loading ads
-            // Banners are automatically sized to 320�50 on phones and 728�90 on tablets
-            // You may call the utility method MaxSdkUtils.isTablet() to help with view sizing adjustments
-            MaxSdk.CreateBanner(bannerAdUnitId, MaxSdkBase.BannerPosition.BottomCenter);
+            bannerView.Destroy();
+            bannerView = null;
+            isBanner = false;
+        }
+    }
 
-            // Set background or background color for banners to be fully functional
-            //MaxSdk.SetBannerBackgroundColor(bannerAdUnitId, Color.black);
-             MaxSdk.SetBannerBackgroundColor(bannerAdUnitId, backgroundColor);
-            MaxSdk.ShowBanner(bannerAdUnitId);
-        };
+    internal void HideBanner()
+    {
+        if (!isBanner) return;
+        isBanner = false;
+        bannerView.Hide();
+    }
 
-        MaxSdk.SetSdkKey("PDb4ao8r3T2UIx1skVgJn4_nUGgFdmIiz2oylI8TkF94fImXfuPG0MwMlK4lDcvMTtoKH5td6nngXW94F_HgTn");
-        MaxSdk.SetUserId("USER_ID");
-        MaxSdk.InitializeSdk();
+    internal void ShowBanner()
+    {
+        if (isBanner) return;
+        isBanner = true;
+        bannerView.Show();
     }
 }
