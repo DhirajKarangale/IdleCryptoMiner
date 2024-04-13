@@ -40,6 +40,7 @@ public class Interstitial : MonoBehaviour
         }
         else
         {
+            Message.instance.Show("Ad not available", Color.white);
             LoadInterstitial();
         }
     }

@@ -20,7 +20,7 @@ MonoBehaviour:
   appLabels:
   - Idle Crypto Miner
   cookie: 1
-  logging: 0
+  logging: 1
   status: 1
   xfbml: 0
   frictionlessRequests: 1
@@ -30,4 +30,4 @@ MonoBehaviour:
   - list: []
   uploadAccessToken: 
   autoLogAppEventsEnabled: 1
-  advertiserIDCollectionEnabled: 0
+  advertiserIDCollectionEnabled: 1

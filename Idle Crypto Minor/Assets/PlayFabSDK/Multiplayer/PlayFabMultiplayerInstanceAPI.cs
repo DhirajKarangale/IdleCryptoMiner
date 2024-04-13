@@ -11,6 +11,8 @@ namespace PlayFab
     /// <summary>
     /// API methods for managing multiplayer servers. API methods for managing parties. The lobby service helps players group
     /// together to play multiplayer games. It is often used as a rendezvous point for players to share connection information.
+    /// The TrueSkill service helps titles to estimate a player's skill based on their match results. The player skill values
+    /// from this service are commonly used by a matchmaking service to provide players with balanced matches.
     /// </summary>
     public partial class PlayFabMultiplayerInstanceAPI : IPlayFabInstanceApi
     {
@@ -564,6 +566,17 @@ namespace PlayFab
         }
 
         /// <summary>
+        /// Preview: Join a lobby as a server entity. This is restricted to client lobbies which are using connections.
+        /// </summary>
+        public void JoinLobbyAsServer(JoinLobbyAsServerRequest request, Action<JoinLobbyAsServerResult> resultCallback, Action<PlayFabError> errorCallback, object customData = null, Dictionary<string, string> extraHeaders = null)
+        {
+            var context = (request == null ? null : request.AuthenticationContext) ?? authenticationContext;
+            var callSettings = apiSettings ?? PlayFabSettings.staticSettings;
+            if (!context.IsEntityLoggedIn()) throw new PlayFabException(PlayFabExceptionCode.NotLoggedIn,"Must be logged in to call this method");
+            PlayFabHttp.MakeApiCall("/Lobby/JoinLobbyAsServer", request, AuthType.EntityToken, resultCallback, errorCallback, customData, extraHeaders, context, callSettings, this);
+        }
+
+        /// <summary>
         /// Join a matchmaking ticket.
         /// </summary>
         public void JoinMatchmakingTicket(JoinMatchmakingTicketRequest request, Action<JoinMatchmakingTicketResult> resultCallback, Action<PlayFabError> errorCallback, object customData = null, Dictionary<string, string> extraHeaders = null)
@@ -583,6 +596,17 @@ namespace PlayFab
             var callSettings = apiSettings ?? PlayFabSettings.staticSettings;
             if (!context.IsEntityLoggedIn()) throw new PlayFabException(PlayFabExceptionCode.NotLoggedIn,"Must be logged in to call this method");
             PlayFabHttp.MakeApiCall("/Lobby/LeaveLobby", request, AuthType.EntityToken, resultCallback, errorCallback, customData, extraHeaders, context, callSettings, this);
+        }
+
+        /// <summary>
+        /// Preview: Request for server to leave a lobby. This is restricted to client owned lobbies which are using connections.
+        /// </summary>
+        public void LeaveLobbyAsServer(LeaveLobbyAsServerRequest request, Action<LobbyEmptyResult> resultCallback, Action<PlayFabError> errorCallback, object customData = null, Dictionary<string, string> extraHeaders = null)
+        {
+            var context = (request == null ? null : request.AuthenticationContext) ?? authenticationContext;
+            var callSettings = apiSettings ?? PlayFabSettings.staticSettings;
+            if (!context.IsEntityLoggedIn()) throw new PlayFabException(PlayFabExceptionCode.NotLoggedIn,"Must be logged in to call this method");
+            PlayFabHttp.MakeApiCall("/Lobby/LeaveLobbyAsServer", request, AuthType.EntityToken, resultCallback, errorCallback, customData, extraHeaders, context, callSettings, this);
         }
 
         /// <summary>
@@ -787,6 +811,17 @@ namespace PlayFab
         }
 
         /// <summary>
+        /// Request a party session.
+        /// </summary>
+        public void RequestPartyService(RequestPartyServiceRequest request, Action<RequestPartyServiceResponse> resultCallback, Action<PlayFabError> errorCallback, object customData = null, Dictionary<string, string> extraHeaders = null)
+        {
+            var context = (request == null ? null : request.AuthenticationContext) ?? authenticationContext;
+            var callSettings = apiSettings ?? PlayFabSettings.staticSettings;
+            if (!context.IsEntityLoggedIn()) throw new PlayFabException(PlayFabExceptionCode.NotLoggedIn,"Must be logged in to call this method");
+            PlayFabHttp.MakeApiCall("/Party/RequestPartyService", request, AuthType.EntityToken, resultCallback, errorCallback, customData, extraHeaders, context, callSettings, this);
+        }
+
+        /// <summary>
         /// Rolls over the credentials to the container registry.
         /// </summary>
         public void RolloverContainerRegistryCredentials(RolloverContainerRegistryCredentialsRequest request, Action<RolloverContainerRegistryCredentialsResponse> resultCallback, Action<PlayFabError> errorCallback, object customData = null, Dictionary<string, string> extraHeaders = null)
@@ -927,6 +962,19 @@ namespace PlayFab
             var callSettings = apiSettings ?? PlayFabSettings.staticSettings;
             if (!context.IsEntityLoggedIn()) throw new PlayFabException(PlayFabExceptionCode.NotLoggedIn,"Must be logged in to call this method");
             PlayFabHttp.MakeApiCall("/Lobby/UpdateLobby", request, AuthType.EntityToken, resultCallback, errorCallback, customData, extraHeaders, context, callSettings, this);
+        }
+
+        /// <summary>
+        /// Preview: Update fields related to a joined server in the lobby the server is in. Servers can keep a lobby from expiring
+        /// by being the one to "update" the lobby in some way. Servers have no impact on last member leave/last member disconnect
+        /// behavior.
+        /// </summary>
+        public void UpdateLobbyAsServer(UpdateLobbyAsServerRequest request, Action<LobbyEmptyResult> resultCallback, Action<PlayFabError> errorCallback, object customData = null, Dictionary<string, string> extraHeaders = null)
+        {
+            var context = (request == null ? null : request.AuthenticationContext) ?? authenticationContext;
+            var callSettings = apiSettings ?? PlayFabSettings.staticSettings;
+            if (!context.IsEntityLoggedIn()) throw new PlayFabException(PlayFabExceptionCode.NotLoggedIn,"Must be logged in to call this method");
+            PlayFabHttp.MakeApiCall("/Lobby/UpdateLobbyAsServer", request, AuthType.EntityToken, resultCallback, errorCallback, customData, extraHeaders, context, callSettings, this);
         }
 
         /// <summary>

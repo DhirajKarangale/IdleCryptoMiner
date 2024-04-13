@@ -614,25 +614,6 @@ namespace PlayFab.ClientModels
     }
 
     /// <summary>
-    /// Collection filter to include and/or exclude collections with certain key-value pairs. The filter generates a collection
-    /// set defined by Includes rules and then remove collections that matches the Excludes rules. A collection is considered
-    /// matching a rule if the rule describes a subset of the collection.
-    /// </summary>
-    [Serializable]
-    public class CollectionFilter : PlayFabBaseModel
-    {
-        /// <summary>
-        /// List of Exclude rules, with any of which if a collection matches, it is excluded by the filter.
-        /// </summary>
-        public List<Container_Dictionary_String_String> Excludes;
-        /// <summary>
-        /// List of Include rules, with any of which if a collection matches, it is included by the filter, unless it is excluded by
-        /// one of the Exclude rule
-        /// </summary>
-        public List<Container_Dictionary_String_String> Includes;
-    }
-
-    /// <summary>
     /// The final step in the purchasing process, this API finalizes the purchase with the payment provider, where applicable,
     /// adding virtual goods to the player inventory (including random drop table resolution and recursive addition of bundled
     /// items) and adjusting virtual currency balances for funds used or added. Note that this is a pull operation, and should
@@ -830,18 +811,6 @@ namespace PlayFab.ClientModels
         public EmailVerificationStatus? VerificationStatus;
     }
 
-    /// <summary>
-    /// A data container
-    /// </summary>
-    [Serializable]
-    public class Container_Dictionary_String_String : PlayFabBaseModel
-    {
-        /// <summary>
-        /// Content of data
-        /// </summary>
-        public Dictionary<string,string> Data;
-    }
-
     public enum ContinentCode
     {
         AF,
@@ -850,7 +819,8 @@ namespace PlayFab.ClientModels
         EU,
         NA,
         OC,
-        SA
+        SA,
+        Unknown
     }
 
     public enum CountryCode
@@ -1103,7 +1073,8 @@ namespace PlayFab.ClientModels
         EH,
         YE,
         ZM,
-        ZW
+        ZW,
+        Unknown
     }
 
     /// <summary>
@@ -1294,48 +1265,6 @@ namespace PlayFab.ClientModels
         ZWD
     }
 
-    [Serializable]
-    public class CurrentGamesRequest : PlayFabRequestCommon
-    {
-        /// <summary>
-        /// Build to match against.
-        /// </summary>
-        public string BuildVersion;
-        /// <summary>
-        /// Game mode to look for.
-        /// </summary>
-        public string GameMode;
-        /// <summary>
-        /// Region to check for Game Server Instances.
-        /// </summary>
-        public Region? Region;
-        /// <summary>
-        /// Statistic name to find statistic-based matches.
-        /// </summary>
-        public string StatisticName;
-        /// <summary>
-        /// Filter to include and/or exclude Game Server Instances associated with certain tags.
-        /// </summary>
-        public CollectionFilter TagFilter;
-    }
-
-    [Serializable]
-    public class CurrentGamesResult : PlayFabResultCommon
-    {
-        /// <summary>
-        /// number of games running
-        /// </summary>
-        public int GameCount;
-        /// <summary>
-        /// array of games found
-        /// </summary>
-        public List<GameInfo> Games;
-        /// <summary>
-        /// total number of players across all servers
-        /// </summary>
-        public int PlayerCount;
-    }
-
     /// <summary>
     /// Any arbitrary information collected by the device
     /// </summary>
@@ -1486,19 +1415,8 @@ namespace PlayFab.ClientModels
         None,
         Steam,
         Facebook,
-        SteamOrFacebook,
         Xbox,
-        SteamOrXbox,
-        FacebookOrXbox,
-        SteamOrFacebookOrXbox,
         Psn,
-        SteamOrPsn,
-        FacebookOrPsn,
-        SteamOrFacebookOrPsn,
-        XboxOrPsn,
-        SteamOrXboxOrPsn,
-        FacebookOrXboxOrPsn,
-        SteamOrFacebookOrXboxOrPsn,
         All
     }
 
@@ -1585,104 +1503,6 @@ namespace PlayFab.ClientModels
         /// Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Game Center identifier.
         /// </summary>
         public string PlayFabId;
-    }
-
-    [Serializable]
-    public class GameInfo : PlayFabBaseModel
-    {
-        /// <summary>
-        /// build version this server is running
-        /// </summary>
-        public string BuildVersion;
-        /// <summary>
-        /// game mode this server is running
-        /// </summary>
-        public string GameMode;
-        /// <summary>
-        /// game session custom data
-        /// </summary>
-        public string GameServerData;
-        /// <summary>
-        /// game specific string denoting server configuration
-        /// </summary>
-        public GameInstanceState? GameServerStateEnum;
-        /// <summary>
-        /// last heartbeat of the game server instance, used in external game server provider mode
-        /// </summary>
-        public DateTime? LastHeartbeat;
-        /// <summary>
-        /// unique lobby identifier for this game server
-        /// </summary>
-        public string LobbyID;
-        /// <summary>
-        /// maximum players this server can support
-        /// </summary>
-        public int? MaxPlayers;
-        /// <summary>
-        /// array of current player IDs on this server
-        /// </summary>
-        public List<string> PlayerUserIds;
-        /// <summary>
-        /// region to which this server is associated
-        /// </summary>
-        public Region? Region;
-        /// <summary>
-        /// duration in seconds this server has been running
-        /// </summary>
-        public uint RunTime;
-        /// <summary>
-        /// IPV4 address of the server
-        /// </summary>
-        public string ServerIPV4Address;
-        /// <summary>
-        /// IPV6 address of the server
-        /// </summary>
-        public string ServerIPV6Address;
-        /// <summary>
-        /// port number to use for non-http communications with the server
-        /// </summary>
-        public int? ServerPort;
-        /// <summary>
-        /// Public DNS name (if any) of the server
-        /// </summary>
-        public string ServerPublicDNSName;
-        /// <summary>
-        /// stastic used to match this game in player statistic matchmaking
-        /// </summary>
-        public string StatisticName;
-        /// <summary>
-        /// game session tags
-        /// </summary>
-        public Dictionary<string,string> Tags;
-    }
-
-    public enum GameInstanceState
-    {
-        Open,
-        Closed
-    }
-
-    [Serializable]
-    public class GameServerRegionsRequest : PlayFabRequestCommon
-    {
-        /// <summary>
-        /// version of game server for which stats are being requested
-        /// </summary>
-        public string BuildVersion;
-        /// <summary>
-        /// Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
-        /// title has been selected.
-        /// </summary>
-        public string TitleId;
-    }
-
-    [Serializable]
-    public class GameServerRegionsResult : PlayFabResultCommon
-    {
-        /// <summary>
-        /// array of regions found matching the request parameters
-        /// </summary>
-        public List<RegionInfo> Regions;
     }
 
     [Serializable]
@@ -1972,19 +1792,10 @@ namespace PlayFab.ClientModels
         /// </summary>
         public Dictionary<string,string> CustomTags;
         /// <summary>
-        /// Indicates which other platforms' friends should be included in the response.
+        /// Indicates which other platforms' friends should be included in the response. In HTTP, it is represented as a
+        /// comma-separated list of platforms.
         /// </summary>
         public ExternalFriendSources? ExternalPlatformFriends;
-        /// <summary>
-        /// Indicates whether Facebook friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", false)]
-        public bool? IncludeFacebookFriends;
-        /// <summary>
-        /// Indicates whether Steam service friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", false)]
-        public bool? IncludeSteamFriends;
         /// <summary>
         /// Maximum number of entries to retrieve. Default 10, maximum 100.
         /// </summary>
@@ -2044,19 +1855,10 @@ namespace PlayFab.ClientModels
         /// </summary>
         public Dictionary<string,string> CustomTags;
         /// <summary>
-        /// Indicates which other platforms' friends should be included in the response.
+        /// Indicates which other platforms' friends should be included in the response. In HTTP, it is represented as a
+        /// comma-separated list of platforms.
         /// </summary>
         public ExternalFriendSources? ExternalPlatformFriends;
-        /// <summary>
-        /// Indicates whether Facebook friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", false)]
-        public bool? IncludeFacebookFriends;
-        /// <summary>
-        /// Indicates whether Steam service friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", false)]
-        public bool? IncludeSteamFriends;
         /// <summary>
         /// Maximum number of entries to retrieve. Default 10, maximum 100.
         /// </summary>
@@ -2093,19 +1895,10 @@ namespace PlayFab.ClientModels
         /// </summary>
         public Dictionary<string,string> CustomTags;
         /// <summary>
-        /// Indicates which other platforms' friends should be included in the response.
+        /// Indicates which other platforms' friends should be included in the response. In HTTP, it is represented as a
+        /// comma-separated list of platforms.
         /// </summary>
         public ExternalFriendSources? ExternalPlatformFriends;
-        /// <summary>
-        /// Indicates whether Facebook friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", false)]
-        public bool? IncludeFacebookFriends;
-        /// <summary>
-        /// Indicates whether Steam service friends should be included in the response. Default is true.
-        /// </summary>
-        [Obsolete("Use 'ExternalPlatformFriends' instead", false)]
-        public bool? IncludeSteamFriends;
         /// <summary>
         /// If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
         /// only the allowed client profile properties for the title may be requested. These allowed properties are configured in
@@ -2868,6 +2661,32 @@ namespace PlayFab.ClientModels
         /// Mapping of PlayStation :tm: Network identifiers to PlayFab identifiers.
         /// </summary>
         public List<PSNAccountPlayFabIdPair> Data;
+    }
+
+    [Serializable]
+    public class GetPlayFabIDsFromPSNOnlineIDsRequest : PlayFabRequestCommon
+    {
+        /// <summary>
+        /// Id of the PlayStation :tm: Network issuer environment. If null, defaults to production environment.
+        /// </summary>
+        public int? IssuerId;
+        /// <summary>
+        /// Array of unique PlayStation :tm: Network identifiers for which the title needs to get PlayFab identifiers. The array
+        /// cannot exceed 2,000 in length.
+        /// </summary>
+        public List<string> PSNOnlineIDs;
+    }
+
+    /// <summary>
+    /// For PlayStation :tm: Network identifiers which have not been linked to PlayFab accounts, null will be returned.
+    /// </summary>
+    [Serializable]
+    public class GetPlayFabIDsFromPSNOnlineIDsResult : PlayFabResultCommon
+    {
+        /// <summary>
+        /// Mapping of PlayStation :tm: Network identifiers to PlayFab identifiers.
+        /// </summary>
+        public List<PSNOnlinePlayFabIdPair> Data;
     }
 
     [Serializable]
@@ -3878,6 +3697,11 @@ namespace PlayFab.ClientModels
         /// 0x08 should become "08").
         /// </summary>
         public string SteamTicket;
+        /// <summary>
+        /// True if ticket was generated using ISteamUser::GetAuthTicketForWebAPI() using "AzurePlayFab" as the identity string.
+        /// False if the ticket was generated with ISteamUser::GetAuthSessionTicket().
+        /// </summary>
+        public bool? TicketIsServiceSpecific;
     }
 
     [Serializable]
@@ -4290,7 +4114,8 @@ namespace PlayFab.ClientModels
     /// this is the first time a user has signed in with Game Center and CreateAccount is set to true, a new PlayFab account
     /// will be created and linked to the Game Center identifier. In this case, no email or username will be associated with the
     /// PlayFab account. Otherwise, if no PlayFab account is linked to the Game Center account, an error indicating this will be
-    /// returned, so that the title can guide the user through creation of a PlayFab account.
+    /// returned, so that the title can guide the user through creation of a PlayFab account. If an invalid iOS Game Center
+    /// player identifier is used, an error indicating this will be returned.
     /// </summary>
     [Serializable]
     public class LoginWithGameCenterRequest : PlayFabRequestCommon
@@ -4387,6 +4212,10 @@ namespace PlayFab.ClientModels
         /// (https://developers.google.com/identity/sign-in/android/offline-access) Google client API.
         /// </summary>
         public string ServerAuthCode;
+        /// <summary>
+        /// Optional boolean to opt out of setting the MPA email when creating a Google account, defaults to true.
+        /// </summary>
+        public bool? SetEmail;
         /// <summary>
         /// Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         /// title has been selected.
@@ -4732,14 +4561,13 @@ namespace PlayFab.ClientModels
 
     /// <summary>
     /// Steam sign-in is accomplished with the Steam Session Ticket. More information on the Ticket can be found in the
-    /// Steamworks SDK, here: https://partner.steamgames.com/documentation/auth (requires sign-in). NOTE: For Steam
-    /// authentication to work, the title must be configured with the Steam Application ID and Web API Key in the PlayFab Game
-    /// Manager (under Steam in the Add-ons Marketplace). You can obtain a Web API Key from the Permissions page of any Group
-    /// associated with your App ID in the Steamworks site. If this is the first time a user has signed in with the Steam
-    /// account and CreateAccount is set to true, a new PlayFab account will be created and linked to the provided account's
-    /// Steam ID. In this case, no email or username will be associated with the PlayFab account. Otherwise, if no PlayFab
-    /// account is linked to the Steam account, an error indicating this will be returned, so that the title can guide the user
-    /// through creation of a PlayFab account.
+    /// Steamworks SDK, here: https://partner.steamgames.com/documentation/auth. NOTE: For Steam authentication to work, the
+    /// title must be configured with the Steam Application ID and Web API Key in the PlayFab Game Manager (under Steam in the
+    /// Add-ons Marketplace). You can obtain a Web API Key from the Permissions page of any Group associated with your App ID in
+    /// the Steamworks site. If this is the first time a user has signed in with the Steam account and CreateAccount is set to
+    /// true, a new PlayFab account will be created and linked to the provided account's Steam ID. In this case, no email or
+    /// username will be associated with the PlayFab account. Otherwise, if no PlayFab account is linked to the Steam account,
+    /// an error indicating this will be returned, so that the title can guide the user through creation of a PlayFab account.
     /// </summary>
     [Serializable]
     public class LoginWithSteamRequest : PlayFabRequestCommon
@@ -4769,6 +4597,11 @@ namespace PlayFab.ClientModels
         /// 0x08 should become "08").
         /// </summary>
         public string SteamTicket;
+        /// <summary>
+        /// True if ticket was generated using ISteamUser::GetAuthTicketForWebAPI() using "AzurePlayFab" as the identity string.
+        /// False if the ticket was generated with ISteamUser::GetAuthSessionTicket().
+        /// </summary>
+        public bool? TicketIsServiceSpecific;
         /// <summary>
         /// Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         /// title has been selected.
@@ -4871,97 +4704,6 @@ namespace PlayFab.ClientModels
         /// </summary>
         public string Level;
         public string Message;
-    }
-
-    [Serializable]
-    public class MatchmakeRequest : PlayFabRequestCommon
-    {
-        /// <summary>
-        /// Build version to match against. [Note: Required if LobbyId is not specified]
-        /// </summary>
-        public string BuildVersion;
-        /// <summary>
-        /// Character to use for stats based matching. Leave null to use account stats.
-        /// </summary>
-        public string CharacterId;
-        /// <summary>
-        /// The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-        /// </summary>
-        public Dictionary<string,string> CustomTags;
-        /// <summary>
-        /// Game mode to match make against. [Note: Required if LobbyId is not specified]
-        /// </summary>
-        public string GameMode;
-        /// <summary>
-        /// Lobby identifier to match make against. This is used to select a specific Game Server Instance.
-        /// </summary>
-        public string LobbyId;
-        /// <summary>
-        /// Region to match make against. [Note: Required if LobbyId is not specified]
-        /// </summary>
-        public Region? Region;
-        /// <summary>
-        /// Start a game session if one with an open slot is not found. Defaults to true.
-        /// </summary>
-        public bool? StartNewIfNoneFound;
-        /// <summary>
-        /// Player statistic to use in finding a match. May be null for no stat-based matching.
-        /// </summary>
-        public string StatisticName;
-        /// <summary>
-        /// Filter to include and/or exclude Game Server Instances associated with certain Tags
-        /// </summary>
-        public CollectionFilter TagFilter;
-    }
-
-    [Serializable]
-    public class MatchmakeResult : PlayFabResultCommon
-    {
-        /// <summary>
-        /// timestamp for when the server will expire, if applicable
-        /// </summary>
-        public string Expires;
-        /// <summary>
-        /// unique lobby identifier of the server matched
-        /// </summary>
-        public string LobbyID;
-        /// <summary>
-        /// time in milliseconds the application is configured to wait on matchmaking results
-        /// </summary>
-        public int? PollWaitTimeMS;
-        /// <summary>
-        /// IPV4 address of the server
-        /// </summary>
-        public string ServerIPV4Address;
-        /// <summary>
-        /// IPV6 address of the server
-        /// </summary>
-        public string ServerIPV6Address;
-        /// <summary>
-        /// port number to use for non-http communications with the server
-        /// </summary>
-        public int? ServerPort;
-        /// <summary>
-        /// Public DNS name (if any) of the server
-        /// </summary>
-        public string ServerPublicDNSName;
-        /// <summary>
-        /// result of match making process
-        /// </summary>
-        public MatchmakeStatus? Status;
-        /// <summary>
-        /// server authorization ticket (used by RedeemMatchmakerTicket to validate user insertion into the game)
-        /// </summary>
-        public string Ticket;
-    }
-
-    public enum MatchmakeStatus
-    {
-        Complete,
-        Waiting,
-        GameNotFound,
-        NoAvailableSlots,
-        SessionClosed
     }
 
     [Serializable]
@@ -5444,6 +5186,20 @@ namespace PlayFab.ClientModels
         public string PSNAccountId;
     }
 
+    [Serializable]
+    public class PSNOnlinePlayFabIdPair : PlayFabBaseModel
+    {
+        /// <summary>
+        /// Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the PlayStation :tm: Network
+        /// identifier.
+        /// </summary>
+        public string PlayFabId;
+        /// <summary>
+        /// Unique PlayStation :tm: Network identifier for a user.
+        /// </summary>
+        public string PSNOnlineId;
+    }
+
     /// <summary>
     /// Please note that the processing time for inventory grants and purchases increases fractionally the more items are in the
     /// inventory, and the more items are in the grant/purchase operation (with each item in a bundle being a distinct add).
@@ -5583,38 +5339,6 @@ namespace PlayFab.ClientModels
         /// Redirect URI supplied to PlayStation :tm: Network when requesting an auth code
         /// </summary>
         public string RedirectUri;
-    }
-
-    public enum Region
-    {
-        USCentral,
-        USEast,
-        EUWest,
-        Singapore,
-        Japan,
-        Brazil,
-        Australia
-    }
-
-    [Serializable]
-    public class RegionInfo : PlayFabBaseModel
-    {
-        /// <summary>
-        /// indicates whether the server specified is available in this region
-        /// </summary>
-        public bool Available;
-        /// <summary>
-        /// name of the region
-        /// </summary>
-        public string Name;
-        /// <summary>
-        /// url to ping to get roundtrip time
-        /// </summary>
-        public string PingUrl;
-        /// <summary>
-        /// unique identifier for the region
-        /// </summary>
-        public Region? Region;
     }
 
     /// <summary>
@@ -7084,6 +6808,10 @@ namespace PlayFab.ClientModels
         /// </summary>
         public UserPsnInfo PsnInfo;
         /// <summary>
+        /// Server Custom ID information, if a server custom ID has been assigned
+        /// </summary>
+        public UserServerCustomIdInfo ServerCustomIdInfo;
+        /// <summary>
         /// User Steam information, if a Steam account has been linked
         /// </summary>
         public UserSteamInfo SteamInfo;
@@ -7338,6 +7066,15 @@ namespace PlayFab.ClientModels
         /// PlayStation :tm: Network online ID
         /// </summary>
         public string PsnOnlineId;
+    }
+
+    [Serializable]
+    public class UserServerCustomIdInfo : PlayFabBaseModel
+    {
+        /// <summary>
+        /// Custom ID
+        /// </summary>
+        public string CustomId;
     }
 
     [Serializable]

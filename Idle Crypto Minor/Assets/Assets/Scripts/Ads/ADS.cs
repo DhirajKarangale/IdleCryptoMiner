@@ -3,6 +3,8 @@ using GoogleMobileAds.Api;
 
 public class ADS : MonoBehaviour
 {
+    // app id ca-app-pub-2251287037980958~8712634852
+
     private string bannerId = "ca-app-pub-2251287037980958/9234437083";
     private BannerView bannerView;
     private bool isBanner;

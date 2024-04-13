@@ -31,7 +31,7 @@ public class RewardBase : MonoBehaviour
 
         RewardedAd.Load(rewardedId, adRequest, (RewardedAd ad, LoadAdError error) =>
         {
-            if (error != null || ad == null) 
+            if (error != null || ad == null)
             {
                 return;
             }
@@ -59,6 +59,7 @@ public class RewardBase : MonoBehaviour
         }
         else
         {
+            Message.instance.Show("Ad not available", Color.white);
             LoadRewarded();
         }
     }
