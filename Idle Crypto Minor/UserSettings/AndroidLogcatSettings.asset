@@ -1,53 +1,41 @@
 {
     "m_SelectedDeviceId": "4a74c31d",
-    "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+    "m_SelectedProcess": {
+        "deviceId": "4a74c31d",
+        "name": "com.playhobo.idlecryptominer",
+        "processId": 11536,
         "exited": false
     },
     "m_SelectedPriority": 0,
-    "m_KnownPackagesForSerialization": [
+    "m_KnownProcessesForSerialization": [
         {
-            "deviceId": "79XKIJAYY5MNFEUK",
+            "deviceId": "4a74c31d",
             "name": "com.playhobo.idlecryptominer",
-            "processId": 2400,
+            "processId": 24521,
             "exited": true
         },
         {
-            "deviceId": "79XKIJAYY5MNFEUK",
+            "deviceId": "4a74c31d",
             "name": "com.playhobo.idlecryptominer",
-            "processId": 3710,
+            "processId": 5671,
             "exited": true
         },
         {
-            "deviceId": "79XKIJAYY5MNFEUK",
+            "deviceId": "4a74c31d",
             "name": "com.playhobo.idlecryptominer",
-            "processId": 5850,
+            "processId": 7270,
             "exited": true
         },
         {
-            "deviceId": "79XKIJAYY5MNFEUK",
+            "deviceId": "4a74c31d",
             "name": "com.playhobo.idlecryptominer",
-            "processId": 12844,
+            "processId": 11535,
             "exited": true
         },
         {
-            "deviceId": "79XKIJAYY5MNFEUK",
+            "deviceId": "4a74c31d",
             "name": "com.playhobo.idlecryptominer",
-            "processId": 15405,
-            "exited": false
-        },
-        {
-            "deviceId": "79XKIJAYY5MNFEUK",
-            "name": "com.playhobo.idlecryptominer",
-            "processId": 16484,
-            "exited": false
-        },
-        {
-            "deviceId": "65e27542",
-            "name": "com.mi.android.globallauncher",
-            "processId": 18259,
+            "processId": 11536,
             "exited": false
         }
     ],
@@ -83,8 +71,11 @@
             }
         ]
     },
+    "m_ExtraWindowState": {
+        "Type": 0,
+        "Height": 0.0
+    },
     "m_MemoryViewerState": {
-        "MemoryWindowHeight": 300.0,
         "MemoryWindowWidth": 170.0,
         "MemoryTypeEnabled": [
             true,
@@ -99,7 +90,7 @@
             true
         ],
         "MemoryGroup": 2,
-        "Behavior": 0
+        "AutoCapture": true
     },
     "m_FilterOptions": {
         "m_Filter": "",
@@ -117,5 +108,24 @@
         "BitRateK": 20000,
         "DisplayIdEnabled": false,
         "DisplayId": ""
-    }
+    },
+    "m_ScreenCaptureSettings": {
+        "Mode": 0,
+        "m_LastSaveLocation": [
+            "E:\\Games\\Projects\\idlecryptominor\\Idle Crypto Minor",
+            "E:\\Games\\Projects\\idlecryptominor\\Idle Crypto Minor"
+        ]
+    },
+    "m_InputSettings": {
+        "ShiftModifier": false,
+        "SendText": "",
+        "PosixKillSignal": 0,
+        "TargetProcess": {
+            "deviceId": "",
+            "name": "",
+            "processId": 0,
+            "exited": false
+        }
+    },
+    "m_AutoScroll": 2
 }

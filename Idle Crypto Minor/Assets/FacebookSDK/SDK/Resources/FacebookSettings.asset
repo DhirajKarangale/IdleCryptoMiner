@@ -24,7 +24,7 @@ MonoBehaviour:
   status: 1
   xfbml: 0
   frictionlessRequests: 1
-  androidKeystorePath: E:\Game\Projects\idlecryptominor\Idle Crypto Minor\KeyStore\user.keystore
+  androidKeystorePath: E:\Games\Projects\idlecryptominor\Idle Crypto Minor\KeyStore\user.keystore
   iosURLSuffix: 
   appLinkSchemes:
   - list: []
