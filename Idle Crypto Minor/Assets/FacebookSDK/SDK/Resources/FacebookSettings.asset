@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 10c98d5223ce7c599dec32f0d67447b1
+  - 8551c48fdbba2f852592f1d44302bf67
   appIds:
-  - 3316815951936490
+  - 749959993982142
   appLabels:
   - Idle Crypto Miner
   cookie: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   status: 1
   xfbml: 0
   frictionlessRequests: 1
-  androidKeystorePath: E:\Games\Projects\idlecryptominor\Idle Crypto Minor\KeyStore\user.keystore
+  androidKeystorePath: E:\Games\Projects\IdleCryptoMiner\Idle Crypto Minor\KeyStore\user.keystore
   iosURLSuffix: 
   appLinkSchemes:
   - list: []
