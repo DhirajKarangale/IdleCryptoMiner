@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 8551c48fdbba2f852592f1d44302bf67
+  - 10c98d5223ce7c599dec32f0d67447b1
   appIds:
-  - 749959993982142
+  - 3316815951936490
   appLabels:
   - Idle Crypto Miner
   cookie: 1

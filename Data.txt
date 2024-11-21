@@ -1,9 +1,5 @@
 2D android game
 
-GitHub : https://github.com/DhirajKarangale/IdleCryptoMiner.git
-
-GitLab :- https://gitlab.com/lifeofcardsart/idlecryptominor.git
-
 FB Ascess Token :- GGQVlaZA0w2VnJaU2lQTXg4ZAUpTVldLVnFfbkFxSmtUTktZAcVRySVZACSUY3ZAXRkX0JhMzFGd09WWFE0cnItanJ1a19ab290UHc2OFhicWYyZAzBxMkJKZAHFFNlFCOWpPTVpQczcteDdTYl8xbEoyb0Nqa0lweUpkaVl6T1g3NmVNZAjVsUQZDZD App Name :- Idle Crypto Miner App Id :- 3316815951936490 Client Token :- 10c98d5223ce7c599dec32f0d67447b1
 
 Playfab Id :- 55B2F Secret Key :- E8AZ114TYAFQ4HHN4J5JNP3HZSSHNWX95IZFYMRSFB95RIPRSN

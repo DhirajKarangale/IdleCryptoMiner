@@ -3,108 +3,110 @@ using UnityEngine;
 using Facebook.Unity;
 using System.Collections;
 using PlayFab.ClientModels;
-using UnityEngine.Networking;
 using System.Collections.Generic;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 
 public class Lobby : MonoBehaviour
 {
-    [SerializeField] GameObject objFBButton;
-    [SerializeField] GameObject objTryAgainButton;
-
     private const string titleId = "55B2F";
-
-    private bool isLogginTried;
-    private bool isGuestLogin;
 
     [SerializeField] GiftsDB db;
     [SerializeField] Sprite[] sprites;
 
     private void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         for (int i = 0; i < 100; i++)
         {
             db.gifts[i].sprite = sprites[i];
         }
 
-        isGuestLogin = false;
-        isLogginTried = false;
-        DefaultScreen();
-        StartCoroutine(IEAutoLogin());
-
-        if (FB.IsInitialized) return;
-        FB.Init(() => FB.ActivateApp());
+        InitGoogle();
+        Loading.instance.Active(false);
+        StartCoroutine(IECheckInternet());
     }
 
-    private IEnumerator IEAutoLogin()
+    private IEnumerator IECheckInternet()
     {
-        UnityWebRequest request = new UnityWebRequest("http://google.com");
-        yield return request.SendWebRequest();
-
-        if (request.error != null)
+        if (Application.internetReachability == NetworkReachability.NotReachable)
         {
-            StopAllCoroutines();
             Offline();
+            yield return new WaitForSecondsRealtime(2);
+            StartCoroutine(IECheckInternet());
         }
         else
         {
-            if (!isLogginTried && PlayerPrefs.HasKey("FBToken")) AutoLogin();
-            else DefaultScreen();
+            Message.instance.Show("Online", Color.green);
+            if (PlayerPrefs.HasKey("GoogleToken")) AutoLoginGoogle();
+            else Loading.instance.Active(false);
         }
+    }
+
+    private void LoginTimeOut()
+    {
+        CancelInvoke();
+        StopAllCoroutines();
+
+        PlayerPrefs.DeleteKey("GoogleToken");
+        PlayerPrefs.DeleteKey("FBToken");
+
+        StartCoroutine(IECheckInternet());
+    }
+
+    private void InitGoogle()
+    {
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
+            .AddOauthScope("profile")
+            .RequestServerAuthCode(false)
+            .Build();
+
+        PlayGamesPlatform.InitializeInstance(config);
+        PlayGamesPlatform.DebugLogEnabled = true;
+        PlayGamesPlatform.Activate();
     }
 
     private void Offline()
     {
         Message.instance.Show("You are Offline", Color.red);
-        objFBButton.SetActive(false);
-        objTryAgainButton.SetActive(true);
         Loading.instance.Active(false);
     }
 
-    private void DefaultScreen()
+    private void LoadGame()
     {
-        objFBButton.SetActive(true);
-        objTryAgainButton.SetActive(false);
+        Loading.instance.LoadLevel(1);
+    }
+
+    private void AutoLoginGoogle()
+    {
+        ButtonGoogle();
+    }
+
+
+    private void PlayfabGoogle(string token)
+    {
         Loading.instance.Active(false);
-    }
 
-    private void AutoLogin()
-    {
-        Loading.instance.Active(true);
-        LoginWithPlayfab(PlayerPrefs.GetString("FBToken"));
-        isLogginTried = true;
-        // Message.instance.Show("Logging in", Color.green);
-    }
-
-    private void LoginWithPlayfab(string token)
-    {
-        Invoke("Offline", 10);
-        PlayFabClientAPI.LoginWithFacebook(new PlayFab.ClientModels.LoginWithFacebookRequest
+        PlayFabClientAPI.LoginWithGooglePlayGamesServices(new LoginWithGooglePlayGamesServicesRequest
         {
             TitleId = titleId,
-            AccessToken = token,
+            ServerAuthCode = token,
             CreateAccount = true,
             InfoRequestParameters = new GetPlayerCombinedInfoRequestParams
             {
                 GetPlayerProfile = true
             }
-        }, PlayfabLoginSucess, PlafabLoginFail);
+        }, GoogleLoginSucess, PlafabLoginFail
+        );
     }
 
-    private void PlayfabLoginSucess(PlayFab.ClientModels.LoginResult result)
+    private void GoogleLoginSucess(PlayFab.ClientModels.LoginResult result)
     {
-        if (isGuestLogin) return;
-
-        if (Application.platform == RuntimePlatform.Android)
+        if (PlayGamesPlatform.Instance.IsAuthenticated())
         {
-            if (FB.IsLoggedIn)
-            {
-                PlayerPrefs.SetString("FBToken", AccessToken.CurrentAccessToken.TokenString);
-                UpdatePlayerData();
-            }
-            else FBLogin();
+            PlayerPrefs.SetString("GoogleToken", PlayGamesPlatform.Instance.GetServerAuthCode());
+            UpdateGoogleData();
         }
-
-        // Message.instance.Show("LoggedIn in FB", Color.green);
         PlayerPrefs.SetString("PlayfabId", result.PlayFabId);
         PlayerPrefs.SetInt("LoggedIn", 1);
         LoadGame();
@@ -112,61 +114,25 @@ public class Lobby : MonoBehaviour
 
     private void PlafabLoginFail(PlayFabError error)
     {
-        // Message.instance.Show("FB LoggedIn Fail", Color.red);
-        Loading.instance.Active(false);
-        StartCoroutine(IEAutoLogin());
+        StopAllCoroutines();
+        PlayerPrefs.DeleteKey("FBToken");
+        PlayerPrefs.DeleteKey("GoogleToken");
+
+        StartCoroutine(IECheckInternet());
+        Message.instance.Show("Login Failed, Try again: " + error.ErrorMessage, Color.red);
     }
 
-    private void FBLogin()
+    private void UpdateGoogleData()
     {
-        var perms = new List<string>() { "email", "gaming_user_picture" };
-        FB.LogInWithReadPermissions(perms, OnFBLogin);
+        SetName(PlayGamesPlatform.Instance.GetUserDisplayName());
+        SetPic(PlayGamesPlatform.Instance.GetUserImageUrl());
     }
 
-    private void OnFBLogin(ILoginResult result)
+    private void SetName(string userName)
     {
-        if (FB.IsLoggedIn)
-        {
-            PlayerPrefs.SetString("FBToken", AccessToken.CurrentAccessToken.TokenString);
-            UpdatePlayerData();
-        }
-        else
-        {
-            DefaultScreen();
-        }
-    }
-
-
-    private void UpdatePlayerData()
-    {
-        FB.API("me?fields=name", Facebook.Unity.HttpMethod.GET, GetFBName);
-        FB.API("/me/picture?redirect=false", HttpMethod.GET, GetFBPic);
-    }
-
-    private void GetFBPic(IGraphResult result)
-    {
-        if (string.IsNullOrEmpty(result.Error) && !result.Cancelled)
-        {
-            IDictionary data = result.ResultDictionary["data"] as IDictionary;
-            string url = data["url"] as string;
-
-            if (string.IsNullOrEmpty(url)) return;
-            PlayFabClientAPI.UpdateAvatarUrl(new UpdateAvatarUrlRequest()
-            {
-                ImageUrl = url
-            }, OnSuccess => { }, OnFailed => { });
-        }
-    }
-
-    private void GetFBName(Facebook.Unity.IGraphResult result)
-    {
-        string fbName = result.ResultDictionary["name"].ToString();
-        fbName = ClampName(fbName);
-        var request = new UpdateUserTitleDisplayNameRequest
-        {
-            DisplayName = fbName,
-        };
-        PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnSucessUpdatePlayerData => { }, OnError);
+        userName = ClampName(userName);
+        var request = new UpdateUserTitleDisplayNameRequest { DisplayName = userName, };
+        PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnSucessUpdatePlayerData => { PlayerPrefs.SetString("PlayerName", userName); }, OnError);
     }
 
     private string ClampName(string name)
@@ -176,35 +142,224 @@ public class Lobby : MonoBehaviour
         return name;
     }
 
-    private void OnError(PlayFabError error)
+    private void SetPic(string url)
     {
-       // Debug.Log("Playfab Error : " + error);
+        if (string.IsNullOrEmpty(url)) return;
+        PlayFabClientAPI.UpdateAvatarUrl(new UpdateAvatarUrlRequest()
+        {
+            ImageUrl = url
+        }, OnSuccess => { }, OnFailed => { });
     }
 
-    private void LoadGame()
+    private void OnError(PlayFabError error)
     {
-        Loading.instance.LoadLevel(1);
+        Offline();
+    }
+
+
+    public void ButtonGoogle()
+    {
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            Message.instance.Show("You are offline", Color.red);
+            Loading.instance.Active(false);
+            return;
+        }
+
+        if (PlayGamesPlatform.Instance.IsAuthenticated()) PlayGamesPlatform.Instance.SignOut();
+        else InitGoogle();
+
+        CancelInvoke();
+        Invoke(nameof(LoginTimeOut), 10);
+
+        PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (SignInStatus result) =>
+        {
+            if (result == SignInStatus.Success) PlayfabGoogle(PlayGamesPlatform.Instance.GetServerAuthCode());
+        });
     }
 
 
     public void GuestButton()
     {
-        isGuestLogin = true;
         Message.instance.Show("Playing Offline", Color.white);
         PlayerPrefs.SetInt("LoggedIn", 0);
         LoadGame();
     }
 
-    public void TryAgainButton()
-    {
-        StartCoroutine(IEAutoLogin());
-    }
 
-    public void PlayButton()
-    {
-        FB.LogInWithReadPermissions(new List<string> { "email", "gaming_user_picture" }, Res =>
-        {
-            LoginWithPlayfab(AccessToken.CurrentAccessToken.TokenString);
-        });
-    }
+
+
+
+
+
+
+
+    // private void LoginWithPlayfab(string token)
+    // {
+    //     Invoke("Offline", 10);
+    //     PlayFabClientAPI.LoginWithFacebook(new LoginWithFacebookRequest
+    //     {
+    //         TitleId = titleId,
+    //         AccessToken = token,
+    //         CreateAccount = true,
+    //         InfoRequestParameters = new GetPlayerCombinedInfoRequestParams
+    //         {
+    //             GetPlayerProfile = true
+    //         }
+    //     }, PlayfabLoginSucess, PlafabLoginFail);
+    // }
+
+    // private void PlayfabLoginSucess(PlayFab.ClientModels.LoginResult result)
+    // {
+    //     if (isGuestLogin) return;
+
+    //     if (Application.platform == RuntimePlatform.Android)
+    //     {
+    //         if (FB.IsLoggedIn)
+    //         {
+    //             PlayerPrefs.SetString("FBToken", AccessToken.CurrentAccessToken.TokenString);
+    //             UpdatePlayerData();
+    //         }
+    //         else FBLogin();
+    //     }
+
+    //     // Message.instance.Show("LoggedIn in FB", Color.green);
+    //     PlayerPrefs.SetString("PlayfabId", result.PlayFabId);
+    //     PlayerPrefs.SetInt("LoggedIn", 1);
+    //     LoadGame();
+    // }
+
+    // private void PlafabLoginFail(PlayFabError error)
+    // {
+    //     // Message.instance.Show("FB LoggedIn Fail", Color.red);
+    //     Loading.instance.Active(false);
+    //     StartCoroutine(IEAutoLogin());
+    // }
+
+    // private void FBLogin()
+    // {
+    //     var perms = new List<string>() { "email", "gaming_user_picture" };
+    //     FB.LogInWithReadPermissions(perms, OnFBLogin);
+    // }
+
+    // private void OnFBLogin(ILoginResult result)
+    // {
+    //     if (FB.IsLoggedIn)
+    //     {
+    //         PlayerPrefs.SetString("FBToken", AccessToken.CurrentAccessToken.TokenString);
+    //         UpdatePlayerData();
+    //     }
+    //     else
+    //     {
+    //         DefaultScreen();
+    //     }
+    // }
+
+
+    // private void UpdatePlayerData()
+    // {
+    //     FB.API("me?fields=name", HttpMethod.GET, GetFBName);
+    //     FB.API("/me/picture?redirect=false", HttpMethod.GET, GetFBPic);
+    // }
+
+    // private void GetFBPic(IGraphResult result)
+    // {
+    //     if (string.IsNullOrEmpty(result.Error) && !result.Cancelled)
+    //     {
+    //         IDictionary data = result.ResultDictionary["data"] as IDictionary;
+    //         string url = data["url"] as string;
+
+    //         if (string.IsNullOrEmpty(url)) return;
+    //         PlayFabClientAPI.UpdateAvatarUrl(new UpdateAvatarUrlRequest()
+    //         {
+    //             ImageUrl = url
+    //         }, OnSuccess => { }, OnFailed => { });
+    //     }
+    // }
+
+    // private void GetFBName(IGraphResult result)
+    // {
+    //     string fbName = result.ResultDictionary["name"].ToString();
+    //     fbName = ClampName(fbName);
+    //     var request = new UpdateUserTitleDisplayNameRequest
+    //     {
+    //         DisplayName = fbName,
+    //     };
+    //     PlayFabClientAPI.UpdateUserTitleDisplayName(request, OnSucessUpdatePlayerData => { }, OnError);
+    // }
+
+    // private string ClampName(string name)
+    // {
+    //     if (name.Length <= 6) return name + "    ";
+    //     else if (name.Length >= 25) return name.Substring(0, 25);
+    //     return name;
+    // }
+
+    // private void OnError(PlayFabError error)
+    // {
+    //     // Debug.Log("Playfab Error : " + error);
+    // }
+
+    // public void TryAgainButton()
+    // {
+    //     StartCoroutine(IEAutoLogin());
+    // }
+
+    // private void PlayfabGoogle(string token)
+    // {
+    //     // LoadingScreen.instance.Active();
+
+    //     // PlayFabClientAPI.loginwith
+    //     PlayFabClientAPI.LoginWithGooglePlayGamesServices(new PlayFab.ClientModels.LoginWithGooglePlayGamesServicesRequest
+    //     {
+    //         TitleId = titleId,
+    //         ServerAuthCode = token,
+    //         CreateAccount = true,
+    //         InfoRequestParameters = new GetPlayerCombinedInfoRequestParams
+    //         {
+    //             GetPlayerProfile = true
+    //         }
+    //     }, GoogleLoginSucess, PlafabLoginFail
+    //     );
+    // }
+
+    // private void GoogleLoginSucess(PlayFab.ClientModels.LoginResult result)
+    // {
+    //     if (PlayGamesPlatform.Instance.IsAuthenticated())
+    //     {
+    //         PlayerPrefs.SetString("GoogleToken", PlayGamesPlatform.Instance.GetServerAuthCode());
+    //         // PlayerPrefs.SetString("GoogleToken", result.SessionTicket);
+    //         // UpdateGoogleData();
+    //     }
+    //     PlayerPrefs.SetString("PlayfabId", result.PlayFabId);
+    //     PlayerPrefs.SetInt("LoggedIn", 1);
+    //     LoadGame();
+    // }
+
+    // public void PlayButton()
+    // {
+    //     // FB.LogInWithReadPermissions(new List<string> { "email", "gaming_user_picture" }, Res =>
+    //     // {
+    //     //     LoginWithPlayfab(AccessToken.CurrentAccessToken.TokenString);
+    //     // });
+
+    //     // if (!txtStatus.text.Equals("Online"))
+    //     // {
+    //     //     Msg.instance.DisplayMsg("You are offline", Color.red);
+    //     //     DefaultScreen();
+    //     //     LoadingScreen.instance.Disable();
+    //     //     return;
+    //     // }
+
+    //     if (PlayGamesPlatform.Instance.IsAuthenticated()) PlayGamesPlatform.Instance.SignOut();
+    //     // else InitGoogle();
+
+    //     // CancelInvoke();
+    //     // Invoke(nameof(LoginTimeOut), 10);
+
+    //     PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (SignInStatus result) =>
+    //     {
+    //         if (result == SignInStatus.Success) PlayfabGoogle(PlayGamesPlatform.Instance.GetServerAuthCode());
+    //     });
+    // }
 }

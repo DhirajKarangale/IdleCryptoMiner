@@ -659,8 +659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43ff6a850ed0784f9b18758e6399897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objFBButton: {fileID: 1118097624}
-  objTryAgainButton: {fileID: 1283446978}
   db: {fileID: 11400000, guid: 6c92a281996dc5b4da0aa50b9e949239, type: 2}
   sprites:
   - {fileID: 754626609, guid: 063215d64f1d31f4b9ad73b28c50ec10, type: 3}
@@ -1146,7 +1144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play Now
+  m_text: Sign in
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f40d48c0b15d8f54fa71680643842714, type: 2}
   m_sharedMaterial: {fileID: 2631783636352373867, guid: f40d48c0b15d8f54fa71680643842714, type: 2}
@@ -1173,8 +1171,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1395,7 +1393,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 374043551}
         m_TargetAssemblyTypeName: Lobby, Assembly-CSharp
-        m_MethodName: PlayButton
+        m_MethodName: ButtonGoogle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
