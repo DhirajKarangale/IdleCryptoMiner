@@ -1,0 +1,23 @@
+# ninja log v5
+12	2172	7541769549747001	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b56633ae9496ec3a
+39	432	7541769531779059	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	d2fe2622e9e54f17
+24	1885	7541769546415993	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	c6478cb88ca6d612
+36	1920	7541769547236898	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	236c4b96b9a7a608
+433	1887	7541769540084999	E:/Games/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/61353n49/obj/armeabi-v7a/libswappywrapper.so	a0f4f43aee35e497
+7	1886	7541769546896622	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	52a408d3e42df8c6
+28	1894	7541769546122661	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	2782ab89280af7ba
+1	1887	7541769546952461	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	5316e3eb249c3c81
+20	1888	7541769543187328	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	5b96f14f6af1b606
+17	2077	7541769548628977	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	7ce8d6e7a56ffd27
+2172	2229	7541769550566486	E:/Games/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/61353n49/obj/armeabi-v7a/libgame.so	f10bd813e1ca12dc
+31	222	7541775915577312	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	d2fe2622e9e54f17
+223	598	7541775918249876	E:/Games/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/61353n49/obj/armeabi-v7a/libswappywrapper.so	a0f4f43aee35e497
+13	689	7541775920393298	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	5b96f14f6af1b606
+5	701	7541775920557724	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	c6478cb88ca6d612
+7	735	7541775920914210	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	52a408d3e42df8c6
+17	749	7541775920990703	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	2782ab89280af7ba
+26	817	7541775921685129	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	236c4b96b9a7a608
+2	852	7541775922019463	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	5316e3eb249c3c81
+21	988	7541775923473458	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	7ce8d6e7a56ffd27
+9	1095	7541775924448975	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	b56633ae9496ec3a
+1095	1161	7541775925229878	E:/Games/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/61353n49/obj/armeabi-v7a/libgame.so	f10bd813e1ca12dc

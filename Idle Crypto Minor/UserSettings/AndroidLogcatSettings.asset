@@ -3,39 +3,27 @@
     "m_SelectedProcess": {
         "deviceId": "4a74c31d",
         "name": "com.playhobo.idlecryptominer",
-        "processId": 11536,
+        "processId": 19843,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownProcessesForSerialization": [
         {
             "deviceId": "4a74c31d",
-            "name": "com.playhobo.idlecryptominer",
-            "processId": 24521,
+            "name": "com.android.settings",
+            "processId": 18320,
+            "exited": true
+        },
+        {
+            "deviceId": "4a74c31d",
+            "name": "com.mi.android.globalFileexplorer",
+            "processId": 24255,
             "exited": true
         },
         {
             "deviceId": "4a74c31d",
             "name": "com.playhobo.idlecryptominer",
-            "processId": 5671,
-            "exited": true
-        },
-        {
-            "deviceId": "4a74c31d",
-            "name": "com.playhobo.idlecryptominer",
-            "processId": 7270,
-            "exited": true
-        },
-        {
-            "deviceId": "4a74c31d",
-            "name": "com.playhobo.idlecryptominer",
-            "processId": 11535,
-            "exited": true
-        },
-        {
-            "deviceId": "4a74c31d",
-            "name": "com.playhobo.idlecryptominer",
-            "processId": 11536,
+            "processId": 19843,
             "exited": false
         }
     ],
@@ -112,8 +100,8 @@
     "m_ScreenCaptureSettings": {
         "Mode": 0,
         "m_LastSaveLocation": [
-            "E:\\Games\\Projects\\idlecryptominor\\Idle Crypto Minor",
-            "E:\\Games\\Projects\\idlecryptominor\\Idle Crypto Minor"
+            "E:\\Games\\IdleCryptoMiner\\Idle Crypto Minor",
+            "E:\\Games\\IdleCryptoMiner\\Idle Crypto Minor"
         ]
     },
     "m_InputSettings": {
@@ -127,5 +115,5 @@
             "exited": false
         }
     },
-    "m_AutoScroll": 2
+    "m_AutoScroll": 0
 }

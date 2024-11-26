@@ -16,16 +16,18 @@ public class Loading : MonoBehaviour
 
     private void Awake()
     {
+        Active(true);
+
         if (instance != null && instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
         else
         {
             instance = this;
         }
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     private IEnumerator IERotateCircle()
@@ -51,5 +53,4 @@ public class Loading : MonoBehaviour
         StopAllCoroutines();
         if (isActive) StartCoroutine(IERotateCircle());
     }
-
 }
