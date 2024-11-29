@@ -3,7 +3,7 @@
     "m_SelectedProcess": {
         "deviceId": "4a74c31d",
         "name": "com.playhobo.idlecryptominer",
-        "processId": 19843,
+        "processId": 32169,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -24,6 +24,18 @@
             "deviceId": "4a74c31d",
             "name": "com.playhobo.idlecryptominer",
             "processId": 19843,
+            "exited": true
+        },
+        {
+            "deviceId": "4a74c31d",
+            "name": "com.playhobo.idlecryptominer",
+            "processId": 32164,
+            "exited": true
+        },
+        {
+            "deviceId": "4a74c31d",
+            "name": "com.playhobo.idlecryptominer",
+            "processId": 32169,
             "exited": false
         }
     ],
