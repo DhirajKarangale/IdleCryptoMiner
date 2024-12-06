@@ -35,7 +35,7 @@ public class ADS : MonoBehaviour
             }
 
             _isInitialized = true;
-            // LoadBanner(); 
+            LoadBanner(); 
         });
     }
 
@@ -61,7 +61,7 @@ public class ADS : MonoBehaviour
         };
 
         bannerView.LoadAd(adRequest);
-        HideBanner();
+        // HideBanner();
     }
 
     private void CreateBannerView()

@@ -3,39 +3,39 @@
     "m_SelectedProcess": {
         "deviceId": "4a74c31d",
         "name": "com.playhobo.idlecryptominer",
-        "processId": 32169,
+        "processId": 23521,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownProcessesForSerialization": [
         {
             "deviceId": "4a74c31d",
-            "name": "com.android.settings",
-            "processId": 18320,
-            "exited": true
-        },
-        {
-            "deviceId": "4a74c31d",
-            "name": "com.mi.android.globalFileexplorer",
-            "processId": 24255,
+            "name": "com.playhobo.idlecryptominer",
+            "processId": 25548,
             "exited": true
         },
         {
             "deviceId": "4a74c31d",
             "name": "com.playhobo.idlecryptominer",
-            "processId": 19843,
+            "processId": 28623,
             "exited": true
         },
         {
             "deviceId": "4a74c31d",
             "name": "com.playhobo.idlecryptominer",
-            "processId": 32164,
+            "processId": 14632,
             "exited": true
         },
         {
             "deviceId": "4a74c31d",
             "name": "com.playhobo.idlecryptominer",
-            "processId": 32169,
+            "processId": 18292,
+            "exited": true
+        },
+        {
+            "deviceId": "4a74c31d",
+            "name": "com.playhobo.idlecryptominer",
+            "processId": 23521,
             "exited": false
         }
     ],

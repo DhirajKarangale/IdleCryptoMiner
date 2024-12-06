@@ -95,7 +95,9 @@ namespace PlayFab.MultiplayerModels
         CentralIndia,
         UaeNorth,
         UkSouth,
-        SwedenCentral
+        SwedenCentral,
+        CanadaCentral,
+        MexicoCentral
     }
 
     public enum AzureVmFamily
@@ -118,7 +120,9 @@ namespace PlayFab.MultiplayerModels
         NCasT4_v3,
         Ddv4,
         Ddsv4,
-        HBv3
+        HBv3,
+        Ddv5,
+        Ddsv5
     }
 
     public enum AzureVmSize
@@ -191,7 +195,17 @@ namespace PlayFab.MultiplayerModels
         Standard_HB120_32rs_v3,
         Standard_HB120_64rs_v3,
         Standard_HB120_96rs_v3,
-        Standard_HB120rs_v3
+        Standard_HB120rs_v3,
+        Standard_D2d_v5,
+        Standard_D4d_v5,
+        Standard_D8d_v5,
+        Standard_D16d_v5,
+        Standard_D32d_v5,
+        Standard_D2ds_v5,
+        Standard_D4ds_v5,
+        Standard_D8ds_v5,
+        Standard_D16ds_v5,
+        Standard_D32ds_v5
     }
 
     [Serializable]
@@ -617,6 +631,10 @@ namespace PlayFab.MultiplayerModels
         /// </summary>
         public List<GameCertificateReferenceParams> GameCertificateReferences;
         /// <summary>
+        /// The game secrets for the build.
+        /// </summary>
+        public List<GameSecretReferenceParams> GameSecretReferences;
+        /// <summary>
         /// The Linux instrumentation configuration for the build.
         /// </summary>
         public LinuxInstrumentationConfiguration LinuxInstrumentationConfiguration;
@@ -695,6 +713,10 @@ namespace PlayFab.MultiplayerModels
         /// The game certificates for the build.
         /// </summary>
         public List<GameCertificateReference> GameCertificateReferences;
+        /// <summary>
+        /// The game secrets for the build.
+        /// </summary>
+        public List<GameSecretReference> GameSecretReferences;
         /// <summary>
         /// The Linux instrumentation configuration for this build.
         /// </summary>
@@ -777,6 +799,10 @@ namespace PlayFab.MultiplayerModels
         /// The game certificates for the build.
         /// </summary>
         public List<GameCertificateReferenceParams> GameCertificateReferences;
+        /// <summary>
+        /// The game secrets for the build.
+        /// </summary>
+        public List<GameSecretReferenceParams> GameSecretReferences;
         /// <summary>
         /// The directory containing the game executable. This would be the start path of the game assets that contain the main game
         /// server executable. If not provided, a best effort will be made to extract it from the start game command.
@@ -861,6 +887,10 @@ namespace PlayFab.MultiplayerModels
         /// The game certificates for the build.
         /// </summary>
         public List<GameCertificateReference> GameCertificateReferences;
+        /// <summary>
+        /// The game secrets for the build.
+        /// </summary>
+        public List<GameSecretReference> GameSecretReferences;
         /// <summary>
         /// The directory containing the game executable. This would be the start path of the game assets that contain the main game
         /// server executable. If not provided, a best effort will be made to extract it from the start game command.
@@ -950,12 +980,16 @@ namespace PlayFab.MultiplayerModels
         /// </summary>
         public List<GameCertificateReferenceParams> GameCertificateReferences;
         /// <summary>
+        /// The game secrets for the build.
+        /// </summary>
+        public List<GameSecretReferenceParams> GameSecretReferences;
+        /// <summary>
         /// The working directory for the game process. If this is not provided, the working directory will be set based on the
         /// mount path of the game server executable.
         /// </summary>
         public string GameWorkingDirectory;
         /// <summary>
-        /// The instrumentation configuration for the build.
+        /// The instrumentation configuration for the Build. Used only if it is a Windows Build.
         /// </summary>
         public InstrumentationConfiguration InstrumentationConfiguration;
         /// <summary>
@@ -963,6 +997,10 @@ namespace PlayFab.MultiplayerModels
         /// detect any breaking changes before they are released to retail. Retail builds should set this value to false.
         /// </summary>
         public bool? IsOSPreview;
+        /// <summary>
+        /// The Linux instrumentation configuration for the Build. Used only if it is a Linux Build.
+        /// </summary>
+        public LinuxInstrumentationConfiguration LinuxInstrumentationConfiguration;
         /// <summary>
         /// Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through
         /// Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
@@ -1036,6 +1074,10 @@ namespace PlayFab.MultiplayerModels
         /// </summary>
         public List<GameCertificateReference> GameCertificateReferences;
         /// <summary>
+        /// The game secrets for the build.
+        /// </summary>
+        public List<GameSecretReference> GameSecretReferences;
+        /// <summary>
         /// The working directory for the game process. If this is not provided, the working directory will be set based on the
         /// mount path of the game server executable.
         /// </summary>
@@ -1049,6 +1091,10 @@ namespace PlayFab.MultiplayerModels
         /// detect any breaking changes before they are released to retail. Retail builds should set this value to false.
         /// </summary>
         public bool? IsOSPreview;
+        /// <summary>
+        /// The Linux instrumentation configuration for this build.
+        /// </summary>
+        public LinuxInstrumentationConfiguration LinuxInstrumentationConfiguration;
         /// <summary>
         /// The metadata of the build.
         /// </summary>
@@ -1599,6 +1645,22 @@ namespace PlayFab.MultiplayerModels
         public string VmId;
     }
 
+    /// <summary>
+    /// Deletes a multiplayer server game secret.
+    /// </summary>
+    [Serializable]
+    public class DeleteSecretRequest : PlayFabRequestCommon
+    {
+        /// <summary>
+        /// The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        /// </summary>
+        public Dictionary<string,string> CustomTags;
+        /// <summary>
+        /// The name of the secret.
+        /// </summary>
+        public string Name;
+    }
+
     [Serializable]
     public class DifferenceRule : PlayFabBaseModel
     {
@@ -1657,7 +1719,8 @@ namespace PlayFab.MultiplayerModels
         SameEntityLoginProvider,
         DifferentEntityLoginProvider,
         AnyEntityLoginProvider,
-        AnyPlatformTypeAndEntityLoginProvider
+        AnyPlatformTypeAndEntityLoginProvider,
+        OnlyServers
     }
 
     [Serializable]
@@ -1913,6 +1976,24 @@ namespace PlayFab.MultiplayerModels
         /// <summary>
         /// The name of the game certificate. This name should match the name of a certificate that was previously uploaded to this
         /// title.
+        /// </summary>
+        public string Name;
+    }
+
+    [Serializable]
+    public class GameSecretReference : PlayFabBaseModel
+    {
+        /// <summary>
+        /// The name of the game secret. This name should match the name of a secret that was previously added to this title.
+        /// </summary>
+        public string Name;
+    }
+
+    [Serializable]
+    public class GameSecretReferenceParams : PlayFabBaseModel
+    {
+        /// <summary>
+        /// The name of the game secret. This name should match the name of a secret that was previously added to this title.
         /// </summary>
         public string Name;
     }
@@ -3357,6 +3438,43 @@ namespace PlayFab.MultiplayerModels
     }
 
     /// <summary>
+    /// Returns a list of multiplayer server game secrets for a title.
+    /// </summary>
+    [Serializable]
+    public class ListSecretSummariesRequest : PlayFabRequestCommon
+    {
+        /// <summary>
+        /// The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        /// </summary>
+        public Dictionary<string,string> CustomTags;
+        /// <summary>
+        /// The page size for the request.
+        /// </summary>
+        public int? PageSize;
+        /// <summary>
+        /// The skip token for the paged request.
+        /// </summary>
+        public string SkipToken;
+    }
+
+    [Serializable]
+    public class ListSecretSummariesResponse : PlayFabResultCommon
+    {
+        /// <summary>
+        /// The page size on the response.
+        /// </summary>
+        public int PageSize;
+        /// <summary>
+        /// The list of game secret.
+        /// </summary>
+        public List<SecretSummary> SecretSummaries;
+        /// <summary>
+        /// The skip token for the paged response.
+        /// </summary>
+        public string SkipToken;
+    }
+
+    /// <summary>
     /// List all server backfill ticket Ids the user is a member of.
     /// </summary>
     [Serializable]
@@ -3952,7 +4070,7 @@ namespace PlayFab.MultiplayerModels
         /// </summary>
         public string DirectPeerConnectivityOptions;
         /// <summary>
-        /// The maximum number of devices allowed to connect to the network. Must be between 1 and 32, inclusive.
+        /// The maximum number of devices allowed to connect to the network. Must be between 1 and 128, inclusive.
         /// </summary>
         public uint MaxDevices;
         /// <summary>
@@ -4376,6 +4494,40 @@ namespace PlayFab.MultiplayerModels
     }
 
     [Serializable]
+    public class Secret : PlayFabBaseModel
+    {
+        /// <summary>
+        /// Optional secret expiration date.
+        /// </summary>
+        public DateTime? ExpirationDate;
+        /// <summary>
+        /// A name for the secret. This is used to reference secrets in build configurations.
+        /// </summary>
+        public string Name;
+        /// <summary>
+        /// Secret value.
+        /// </summary>
+        public string Value;
+    }
+
+    [Serializable]
+    public class SecretSummary : PlayFabBaseModel
+    {
+        /// <summary>
+        /// Optional secret expiration date.
+        /// </summary>
+        public DateTime? ExpirationDate;
+        /// <summary>
+        /// The name of the secret.
+        /// </summary>
+        public string Name;
+        /// <summary>
+        /// The secret version auto-generated after upload.
+        /// </summary>
+        public string Version;
+    }
+
+    [Serializable]
     public class ServerDetails : PlayFabBaseModel
     {
         /// <summary>
@@ -4394,6 +4546,10 @@ namespace PlayFab.MultiplayerModels
         /// The server's region.
         /// </summary>
         public string Region;
+        /// <summary>
+        /// The string server ID of the multiplayer server generated by PlayFab.
+        /// </summary>
+        public string ServerId;
     }
 
     [Serializable]
@@ -4605,7 +4761,8 @@ namespace PlayFab.MultiplayerModels
         /// </summary>
         public string PubSubConnectionHandle;
         /// <summary>
-        /// The name of the resource to subscribe to.
+        /// The name of the resource to subscribe to. For LobbyChange subscriptions this is the lobbyId. For LobbyInvite
+        /// subscriptions this should always be "@me".
         /// </summary>
         public string ResourceId;
         /// <summary>
@@ -4613,7 +4770,9 @@ namespace PlayFab.MultiplayerModels
         /// </summary>
         public uint SubscriptionVersion;
         /// <summary>
-        /// Subscription type.
+        /// Subscription type. "LobbyChange" subscriptions allow a member or owner to receive notifications of lobby data, member or
+        /// owner changes. "LobbyInvite" subscriptions allow a player to receive invites to lobbies. A player does not need to be a
+        /// member of a lobby to receive lobby invites.
         /// </summary>
         public SubscriptionType Type;
     }
@@ -5092,6 +5251,26 @@ namespace PlayFab.MultiplayerModels
         /// The game certificate to upload.
         /// </summary>
         public Certificate GameCertificate;
+    }
+
+    /// <summary>
+    /// Uploads a multiplayer server game secret.
+    /// </summary>
+    [Serializable]
+    public class UploadSecretRequest : PlayFabRequestCommon
+    {
+        /// <summary>
+        /// The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        /// </summary>
+        public Dictionary<string,string> CustomTags;
+        /// <summary>
+        /// Forces the secret renewal if the secret already exists. Default is false
+        /// </summary>
+        public bool? ForceUpdate;
+        /// <summary>
+        /// The game secret to add.
+        /// </summary>
+        public Secret GameSecret;
     }
 
     [Serializable]

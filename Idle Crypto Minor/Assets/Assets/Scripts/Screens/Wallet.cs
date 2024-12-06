@@ -1,11 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
 using TMPro;
 using UnityEngine;
 
-public class Wallet : ScreenBase
+public class Wallet : RewardBase
 {
+    [SerializeField] protected GameObject obj;
+
+    public bool isActive
+    {
+        get { return obj.activeInHierarchy; }
+    }
+
+    public virtual void ActiveButton(bool isActive)
+    {
+        GetData();
+        SoundManager.instance.PlaySound(SoundManager.instance.clipTap);
+        obj.SetActive(isActive);
+    }
+
     [SerializeField] NetWorth netWorth;
 
     [Header("Text")]
@@ -86,7 +98,7 @@ public class Wallet : ScreenBase
             daysLeft = 7;
             adsRemain = adButtons.Length;
         }
-        
+
         UpdateUI();
     }
 
@@ -133,9 +145,13 @@ public class Wallet : ScreenBase
         SetData();
     }
 
-    public override void ActiveButton(bool isActive)
+    public void ButtonWatchAd()
     {
-        base.ActiveButton(isActive);
-        GetData();
+        ShowAd(GetInstanceID());
+    }
+
+    public override void GetReward(int scriptId)
+    {
+        if (scriptId == GetInstanceID()) { Watched(); }
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NFTMineAd : RewardBase
@@ -8,14 +6,11 @@ public class NFTMineAd : RewardBase
 
     public override void ShowAd(int scriptId)
     {
-        base.ShowAd(this.GetInstanceID());
+        base.ShowAd(GetInstanceID());
     }
 
     public override void GetReward(int scriptId)
     {
-        if (scriptId == this.GetInstanceID())
-        {
-            nftNotMined.MineAd();
-        }
+        if (scriptId == GetInstanceID()) nftNotMined.MineAd();
     }
 }

@@ -23,7 +23,7 @@ public class ConsentController : MonoBehaviour
         {
             if (updateError != null)
             {
-                Debug.LogError("Consent update error: " + updateError.Message);
+                // Debug.LogError("Consent update error: " + updateError.Message);
                 Message.instance.Show("Consent update error, " + updateError.Message, Color.red);
                 onComplete?.Invoke(updateError.Message);
                 return;
@@ -39,7 +39,7 @@ public class ConsentController : MonoBehaviour
             {
                 if (showError != null)
                 {
-                    Debug.LogError("Consent form error: " + showError.Message);
+                    // Debug.LogError("Consent form error: " + showError.Message);
                     Message.instance.Show("Consent form error, " + showError.Message, Color.red);
                     onComplete?.Invoke(showError.Message);
                 }
@@ -55,19 +55,19 @@ public class ConsentController : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(error))
         {
-            Debug.LogError("Consent gathering failed with error: " + error);
+            // Debug.LogError("Consent gathering failed with error: " + error);
         }
         else
         {
             // Message.instance.Show("Consent successfully gathered.", Color.green);
-            Debug.Log("Consent successfully gathered.");
+            // Debug.Log("Consent successfully gathered.");
         }
     }
 
     public void ResetConsentInformation()
     {
         ConsentInformation.Reset();
-        Debug.Log("Consent information reset.");
+        // Debug.Log("Consent information reset.");
     }
 
     public void ShowPrivacyOptionsForm(Action<string> onComplete)

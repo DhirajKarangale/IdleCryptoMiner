@@ -9,7 +9,13 @@ public class Interstitial : MonoBehaviour
 
     private void Start()
     {
-        LoadInterstitial();
+        LoadAd(3);
+    }
+
+    private void LoadAd(float delay)
+    {
+        CancelInvoke();
+        Invoke(nameof(LoadInterstitial), delay);
     }
 
     private void LoadInterstitial()
@@ -25,7 +31,11 @@ public class Interstitial : MonoBehaviour
 
         InterstitialAd.Load(interId, adRequest, (InterstitialAd ad, LoadAdError error) =>
         {
-            if (error != null || ad == null) return;
+            if (error != null || ad == null)
+            {
+                LoadAd(1);
+                return;
+            }
 
             interstitialAd = ad;
         });
@@ -36,18 +46,17 @@ public class Interstitial : MonoBehaviour
         if (interstitialAd != null && interstitialAd.CanShowAd())
         {
             interstitialAd.Show();
-            Invoke(nameof(LoadInterstitial), 2);
+            LoadAd(1);
         }
         else
         {
             Message.instance.Show("Ad not available", Color.white);
-            LoadInterstitial();
+            LoadAd(0);
         }
     }
 
     public void ShowAd()
     {
         InterstitialShow();
-        Debug.Log("Show ads");
     }
 }

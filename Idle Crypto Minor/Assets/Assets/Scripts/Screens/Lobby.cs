@@ -35,8 +35,10 @@ public class Lobby : MonoBehaviour
         else
         {
             Message.instance.Show("Online", Color.green);
-            if (PlayerPrefs.HasKey("GoogleToken")) AutoLoginGoogle();
-            else ButtonGoogle();
+            // if (PlayerPrefs.HasKey("GoogleToken")) AutoLoginGoogle();
+            // else ButtonGoogle();
+
+            ButtonGoogle();
         }
     }
 
@@ -48,17 +50,16 @@ public class Lobby : MonoBehaviour
         PlayerPrefs.DeleteKey("GoogleToken");
         PlayerPrefs.DeleteKey("FBToken");
         Loading.instance.Active(false);
-        // StartCoroutine(IECheckInternet());
     }
 
     private void InitGoogle()
     {
-        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
-            .AddOauthScope("profile")
-            .RequestServerAuthCode(false)
-            .Build();
+        // PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
+        //     .AddOauthScope("profile")
+        //     .RequestServerAuthCode(false)
+        //     .Build();
+        // PlayGamesPlatform.InitializeInstance(config);
 
-        PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
     }
@@ -96,8 +97,21 @@ public class Lobby : MonoBehaviour
     {
         if (PlayGamesPlatform.Instance.IsAuthenticated())
         {
-            PlayerPrefs.SetString("GoogleToken", PlayGamesPlatform.Instance.GetServerAuthCode());
-            UpdateGoogleData();
+            PlayGamesPlatform.Instance.Authenticate((SignInStatus result) =>
+            {
+                if (result == SignInStatus.Success)
+                {
+                    PlayGamesPlatform.Instance.RequestServerSideAccess(true, code =>
+                    {
+                        // PlayfabGoogle(code);
+                        PlayerPrefs.SetString("GoogleToken", code);
+                        UpdateGoogleData();
+                    });
+                }
+            });
+
+            // PlayerPrefs.SetString("GoogleToken", PlayGamesPlatform.Instance.GetServerAuthCode());
+            // UpdateGoogleData();
         }
         PlayerPrefs.SetString("PlayfabId", result.PlayFabId);
         PlayerPrefs.SetInt("LoggedIn", 1);
@@ -156,15 +170,36 @@ public class Lobby : MonoBehaviour
             return;
         }
 
-        if (PlayGamesPlatform.Instance.IsAuthenticated()) PlayGamesPlatform.Instance.SignOut();
-        else InitGoogle();
+        // if (PlayGamesPlatform.Instance.IsAuthenticated()) PlayGamesPlatform.Instance.SignOut();
+        // else InitGoogle();
 
         CancelInvoke();
-        Invoke(nameof(LoginTimeOut), 15);
+        Invoke(nameof(LoginTimeOut), 10);
 
-        PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (SignInStatus result) =>
+        // PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+        // PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (SignInStatus result) =>
+        // {
+        //     if (result == SignInStatus.Success) PlayfabGoogle(PlayGamesPlatform.Instance.GetServerAuthCode());
+        // });
+
+        Debug.Log("====================== Button Google");
+        PlayGamesPlatform.Instance.Authenticate((SignInStatus result) =>
         {
-            if (result == SignInStatus.Success) PlayfabGoogle(PlayGamesPlatform.Instance.GetServerAuthCode());
+            Debug.Log("====================== Authentacting");
+            if (result == SignInStatus.Success)
+            {
+                Debug.Log("======================= Auth Success");
+                PlayGamesPlatform.Instance.RequestServerSideAccess(true, code =>
+                {
+                    Debug.Log("======================= Auth Code: " + code);
+                    PlayfabGoogle(code);
+                });
+            }
+            else
+            {
+                Debug.Log("====================== Auth failed");
+            }
+            Debug.Log("====================== Auth Status: " + result);
         });
     }
 

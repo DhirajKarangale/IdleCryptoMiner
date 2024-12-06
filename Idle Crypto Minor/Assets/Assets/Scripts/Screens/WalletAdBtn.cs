@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WalletAdBtn : RewardBase
+public class WalletAdBtn : MonoBehaviour
 {
     [SerializeField] Wallet wallet;
     [SerializeField] UnityEngine.UI.Image image;
@@ -24,11 +24,12 @@ public class WalletAdBtn : RewardBase
     public void ButtonWatchAd()
     {
         if (isWatched) return;
-        ShowAd(this.GetInstanceID());
+        wallet.ButtonWatchAd();
+        // ShowAd(GetInstanceID());
     }
 
-    public override void GetReward(int scriptId)
-    {
-        if (scriptId == this.GetInstanceID()) { wallet.Watched(); }
-    }
+    // public override void GetReward(int scriptId)
+    // {
+    //     if (scriptId == GetInstanceID()) { wallet.Watched(); }
+    // }
 }

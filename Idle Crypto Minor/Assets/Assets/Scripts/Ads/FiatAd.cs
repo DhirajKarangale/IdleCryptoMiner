@@ -17,12 +17,12 @@ public class FiatAd : RewardBase
     public override void ShowAd(int scriptId)
     {
         if (convert) convert.ActiveButton(false);
-        base.ShowAd(this.GetInstanceID());
+        base.ShowAd(GetInstanceID());
     }
 
     public override void GetReward(int scriptId)
     {
-        if (scriptId == this.GetInstanceID())
+        if (scriptId == GetInstanceID())
         {
             int reward = roomManager.roomCount * Random.Range(95, 120);
 
