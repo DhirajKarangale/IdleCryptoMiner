@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 101
+  controlID: 114
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -302,8 +302,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 392
-    y: 79.200005
+    x: 393
+    y: 24
     width: 682.80005
     height: 374.8
   m_SerializedDataModeController:
@@ -377,7 +377,7 @@ MonoBehaviour:
       height: 1920
     m_MinimalGUI: 1
   m_defaultScale: 0.18427083
-  m_LastWindowPixelSize: {x: 853.50006, y: 468.5}
+  m_LastWindowPixelSize: {x: 682.80005, y: 374.8}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79.200005
+    y: 24
     width: 391
     height: 374.8
   m_SerializedDataModeController:
@@ -424,7 +424,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 9ad4ffffced4ffff02f8ffff2af8ffff04fbffff
+      m_ExpandedIDs: 04fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 480
+    y: 424.8
     width: 1075.8
     height: 290
   m_SerializedDataModeController:
@@ -1246,7 +1246,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1256,15 +1256,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: 96
-  m_LastProjectPath: E:\Games\IdleCryptoMiner\Idle Crypto Minor
+  m_LastProjectPath: E:\Unity\IdleCryptoMiner\Idle Crypto Minor
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 165d0000
-    m_LastClickedID: 23830
+    m_SelectedIDs: 025c0000
+    m_LastClickedID: 23554
     m_ExpandedIDs: 00000000025c0000045c0000065c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1448,8 +1448,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1076.8
-    y: 79.200005
+    x: 1077.8
+    y: 24
     width: 458.19995
     height: 690.8
   m_SerializedDataModeController:
