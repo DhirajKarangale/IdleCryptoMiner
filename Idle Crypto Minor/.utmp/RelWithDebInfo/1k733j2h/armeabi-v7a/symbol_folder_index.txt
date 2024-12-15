@@ -1,0 +1,1 @@
+E:\Unity\IdleCryptoMiner\Idle Crypto Minor\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\1k733j2h\obj\armeabi-v7a

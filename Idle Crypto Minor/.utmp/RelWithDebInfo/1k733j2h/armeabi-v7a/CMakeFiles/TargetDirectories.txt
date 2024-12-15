@@ -1,0 +1,8 @@
+E:/Unity/IdleCryptoMiner/Idle Crypto Minor/.utmp/RelWithDebInfo/1k733j2h/armeabi-v7a/CMakeFiles/edit_cache.dir
+E:/Unity/IdleCryptoMiner/Idle Crypto Minor/.utmp/RelWithDebInfo/1k733j2h/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+E:/Unity/IdleCryptoMiner/Idle Crypto Minor/.utmp/RelWithDebInfo/1k733j2h/armeabi-v7a/GameActivity/CMakeFiles/game.dir
+E:/Unity/IdleCryptoMiner/Idle Crypto Minor/.utmp/RelWithDebInfo/1k733j2h/armeabi-v7a/GameActivity/CMakeFiles/edit_cache.dir
+E:/Unity/IdleCryptoMiner/Idle Crypto Minor/.utmp/RelWithDebInfo/1k733j2h/armeabi-v7a/GameActivity/CMakeFiles/rebuild_cache.dir
+E:/Unity/IdleCryptoMiner/Idle Crypto Minor/.utmp/RelWithDebInfo/1k733j2h/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+E:/Unity/IdleCryptoMiner/Idle Crypto Minor/.utmp/RelWithDebInfo/1k733j2h/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+E:/Unity/IdleCryptoMiner/Idle Crypto Minor/.utmp/RelWithDebInfo/1k733j2h/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "94140668716",
+    "project_id": "idle-miner-ad2fa",
+    "storage_bucket": "idle-miner-ad2fa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94140668716:android:db60a39d5040eb6fa56a89",
+        "android_client_info": {
+          "package_name": "com.playhobo.idlecryptominer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2oIDm2Bd9-7DVnVrCjfvOaZQT1GO3t3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
