@@ -1,23 +1,23 @@
 # ninja log v5
-6	2822	7559723259259983	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	6ce1441baf958705
-40	439	7559723234717434	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2ac0f5c90ec64ae3
-35	2347	7559723254643135	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	8800582ef98be198
-441	1948	7559723245213908	E:/Unity/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1k733j2h/obj/arm64-v8a/libswappywrapper.so	af6ebdb029510362
-0	1888	7559723249677546	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a3cfd6690227e9d6
-31	2231	7559723253184394	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	31555ffa4c7fac24
-11	1889	7559723249833809	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	41a8f45ff3ae4722
-27	1995	7559723250741134	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	4a0863bf2536e310
-23	2211	7559723252653103	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	80881667cb8c3255
-19	2326	7559723254380865	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	72798bb32e75fb0b
-2822	2961	7559723260636581	E:/Unity/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1k733j2h/obj/arm64-v8a/libgame.so	9484c26ea851b858
-39	489	7559743665831260	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2ac0f5c90ec64ae3
-13	947	7559743671548282	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	4a0863bf2536e310
-30	1015	7559743672317126	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	8800582ef98be198
-17	1201	7559743674393196	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	41a8f45ff3ae4722
-489	1234	7559743673379550	E:/Unity/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1k733j2h/obj/arm64-v8a/libswappywrapper.so	af6ebdb029510362
-3	1252	7559743675088715	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a3cfd6690227e9d6
-9	1431	7559743676720320	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	6ce1441baf958705
-26	1437	7559743676965464	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	80881667cb8c3255
-21	1588	7559743678459769	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	72798bb32e75fb0b
-34	1644	7559743678918278	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	31555ffa4c7fac24
-1644	1723	7559743679889939	E:/Unity/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1k733j2h/obj/arm64-v8a/libgame.so	9484c26ea851b858
+7	1245	7562031472904686	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	6ce1441baf958705
+28	294	7562031462888168	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2ac0f5c90ec64ae3
+22	956	7562031469439129	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	8800582ef98be198
+294	971	7562031468822973	E:/Unity/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1k733j2h/obj/arm64-v8a/libswappywrapper.so	af6ebdb029510362
+9	1144	7562031471833343	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a3cfd6690227e9d6
+25	1084	7562031471163400	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	31555ffa4c7fac24
+4	970	7562031470090705	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	41a8f45ff3ae4722
+12	981	7562031470115842	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	4a0863bf2536e310
+19	1042	7562031470779654	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	80881667cb8c3255
+15	1200	7562031472384635	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	72798bb32e75fb0b
+1245	1323	7562031473757909	E:/Unity/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1k733j2h/obj/arm64-v8a/libgame.so	9484c26ea851b858
+58	570	7562071772918449	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	2ac0f5c90ec64ae3
+570	1063	7562071777823495	E:/Unity/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1k733j2h/obj/arm64-v8a/libswappywrapper.so	af6ebdb029510362
+21	1333	7562071780801821	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	4a0863bf2536e310
+37	1369	7562071781192136	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	8800582ef98be198
+33	1375	7562071780993231	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	80881667cb8c3255
+10	1377	7562071781272606	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	41a8f45ff3ae4722
+49	1520	7562071782707396	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	31555ffa4c7fac24
+29	1555	7562071783054158	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	a3cfd6690227e9d6
+42	1665	7562071784197152	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	72798bb32e75fb0b
+26	1711	7562071784571819	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	6ce1441baf958705
+1711	1791	7562071785496928	E:/Unity/IdleCryptoMiner/Idle Crypto Minor/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1k733j2h/obj/arm64-v8a/libgame.so	9484c26ea851b858

@@ -4,7 +4,6 @@ using System;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 
 public class RoomManager : RewardBase
 {
@@ -42,18 +41,13 @@ public class RoomManager : RewardBase
     private DateTime timeLast;
 
     public int[] itemCount;
-    private double[] repareData;
 
-    private void Awake() {
-         rooms = new List<Room>();
-    }
-    public void Start()
+    private void Awake()
     {
-        repareData = new double[6];
         currTime = 0;
         index = 0;
-        //rooms = new List<Room>();
         itemCount = new int[4];
+        rooms = new List<Room>();
     }
 
     private void OnEnable()
@@ -111,7 +105,7 @@ public class RoomManager : RewardBase
     {
         foreach (RoomData roomData in dataManager.roomDatas)
         {
-           
+
             Room newRoom = Instantiate(roomPrefab, roomContent);
             newRoom.transform.SetSiblingIndex(index++);
             rooms.Add(newRoom);
@@ -123,7 +117,7 @@ public class RoomManager : RewardBase
         }
 
         UpdateRoomTimer();
-         //Debug.Log("Data Received"+rooms.Count);
+        //Debug.Log("Data Received"+rooms.Count);
     }
 
     private void OnTimeReceived(DataManager dataManager)
@@ -265,14 +259,14 @@ public class RoomManager : RewardBase
     public int roomCount
     {
         //get { return rooms.Count; }
-         get
-    {
-        if (rooms == null)
+        get
         {
-            rooms = new List<Room>();
+            if (rooms == null)
+            {
+                rooms = new List<Room>();
+            }
+            return rooms.Count;
         }
-        return rooms.Count;
-    }
     }
 
     public double[] GetRepareAlgoData(int index)

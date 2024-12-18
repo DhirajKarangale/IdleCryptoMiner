@@ -35,10 +35,10 @@ public class RoomItem : MonoBehaviour
 
     private void UpdateCount()
     {
-        if (this.name.Contains("GraphicCards")) roomManager.itemCount[0]++;
-        else if (this.name.Contains("Algo")) roomManager.itemCount[1]++;
-        else if (this.name.Contains("CoolingDevice")) roomManager.itemCount[2]++;
-        else if (this.name.Contains("Cable")) roomManager.itemCount[3]++;
+        if (name.Contains("GraphicCards") && roomManager.itemCount.Length >= 0) roomManager.itemCount[0]++;
+        else if (name.Contains("Algo") && roomManager.itemCount.Length >= 1) roomManager.itemCount[1]++;
+        else if (name.Contains("CoolingDevice") && roomManager.itemCount.Length >= 2) roomManager.itemCount[2]++;
+        else if (name.Contains("Cable") && roomManager.itemCount.Length >= 3) roomManager.itemCount[3]++;
     }
 
     public double GetHashSpeed(int index)
@@ -46,8 +46,8 @@ public class RoomItem : MonoBehaviour
         int itemlevel = level;
         if ((items.Count > 1) && ((index + 1) < latestItem) && (itemlevel > 1)) itemlevel--;
 
-        long cost = (weight * 20 * itemlevel * (roomManager.rooms.IndexOf(room) + 1)) / 4;
-        return (cost / (5000f * btcPrice));
+        long cost = weight * 20 * itemlevel * (roomManager.rooms.IndexOf(room) + 1) / 4;
+        return cost / (5000f * btcPrice);
     }
 
     public long GetRepareCost(int index)
@@ -55,7 +55,7 @@ public class RoomItem : MonoBehaviour
         int itemlevel = level;
         if ((items.Count > 1) && ((index + 1) < latestItem) && (itemlevel > 1)) itemlevel--;
 
-        long cost = (weight * 20 * itemlevel * (roomManager.rooms.IndexOf(room) + 1)) / 4;
+        long cost = weight * 20 * itemlevel * (roomManager.rooms.IndexOf(room) + 1) / 4;
         return cost / 10;
     }
 
@@ -64,7 +64,7 @@ public class RoomItem : MonoBehaviour
         int itemlevel = level;
         if ((items.Count > 1) && ((index + 1) < latestItem) && (itemlevel > 1)) itemlevel--;
 
-        return (weight * 20 * itemlevel * (roomManager.rooms.IndexOf(room) + 1)) / 4;
+        return weight * 20 * itemlevel * (roomManager.rooms.IndexOf(room) + 1) / 4;
     }
 
     public void RepareMode(int index, bool isHashSpeedChange = true)
@@ -96,7 +96,7 @@ public class RoomItem : MonoBehaviour
 
         if (level <= 0) level = 1;
 
-        purchaseCoast = (weight * 20 * level * (roomManager.rooms.IndexOf(room) + 1)) / 4;
+        purchaseCoast = weight * 20 * level * (roomManager.rooms.IndexOf(room) + 1) / 4;
         repareCost = purchaseCoast / 10;
         hashSpeed = purchaseCoast / (5000f * btcPrice);
         currencyManager.ChangeHashSpeed(hashSpeed);

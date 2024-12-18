@@ -3,11 +3,10 @@ using System.Collections;
 
 public class RepareItem : MonoBehaviour
 {
-    [SerializeField] RoomItem roomItem;
     internal int itemToRepare;
     internal long repareCost;
     internal RepareItemData[] items;
-    // private double[] btcs = new double[6];
+    [SerializeField] RoomItem roomItem;
 
     public bool isRepareMode
     {
@@ -15,6 +14,7 @@ public class RepareItem : MonoBehaviour
         {
             foreach (RepareItemData data in items)
             {
+                if (data == null) continue;
                 if (data.isRepareMode) return true;
             }
 
@@ -26,10 +26,10 @@ public class RepareItem : MonoBehaviour
     {
         while (true)
         {
+            if (items[index] == null) continue;
+
             items[index].isChecking = true;
             items[index].btc += roomItem.GetHashSpeed(index);
-
-            // items[index].isRepareMode = (items[index].btc * 20000) >= (1f); // Test
             items[index].isRepareMode = (items[index].btc * 20000) >= (roomItem.GetPurchaseCost(index) * 3);
 
             if (items[index].isRepareMode)
@@ -50,7 +50,7 @@ public class RepareItem : MonoBehaviour
     {
         for (int i = 0; i < roomItem.items.Count; i++)
         {
-            if (!items[i].isChecking)
+            if (items[i] != null && !items[i].isChecking)
             {
                 StartCoroutine(IECheckRepareMode(i));
             }
@@ -63,11 +63,12 @@ public class RepareItem : MonoBehaviour
         items = new RepareItemData[6];
         for (int i = 0; i < 6; i++)
         {
-            items[i] = new RepareItemData();
-            items[i].btc = btcData[i];
-            items[i].isChecking = false;
-            items[i].isRepareMode = false;
-            // items[i].isPreviouslyRepareMode = ((items[i].btc * 20000) >= (1)); // Test
+            items[i] = new RepareItemData
+            {
+                btc = btcData[i],
+                isChecking = false,
+                isRepareMode = false
+            };
             items[i].isPreviouslyRepareMode = (items[i].btc * 20000) >= (roomItem.GetPurchaseCost(i) * 3);
         }
 
@@ -79,11 +80,7 @@ public class RepareItem : MonoBehaviour
         double[] btcs = new double[6] { 0, 0, 0, 0, 0, 0 };
 
         if (items == null) return btcs;
-        // Debug.Log(transform.name + " Items Count : " + items.Length);
-        for (int i = 0; i < 6; i++)
-        {
-            btcs[i] = items[i].btc;
-        }
+        for (int i = 0; i < 6; i++) btcs[i] = items[i].btc;
 
         return btcs;
     }
@@ -118,8 +115,8 @@ public class RepareItem : MonoBehaviour
 [System.Serializable]
 public class RepareItemData
 {
-    internal double btc;
-    internal bool isRepareMode;
-    internal bool isChecking;
-    internal bool isPreviouslyRepareMode;
+    public double btc;
+    public bool isRepareMode;
+    public bool isChecking;
+    public bool isPreviouslyRepareMode;
 }

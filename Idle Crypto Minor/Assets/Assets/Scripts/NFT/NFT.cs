@@ -22,15 +22,14 @@ public class NFT : MonoBehaviour
     public void SetData(NFTData nftData)
     {
         this.nftData = nftData;
-
         imgCharacter.sprite = nftData.image;
-
         txtName.text = nftData.name;
         UpdaetStatus();
     }
 
     public void UpdaetStatus()
     {
+        if (nftData == null) return;
         if (nftData.mine > 0)
         {
             imgOverlay.localScale = new Vector3(1, nftData.mine / 100, 1);
@@ -67,6 +66,7 @@ public class NFT : MonoBehaviour
 
     public void NFTButton()
     {
+        if (nftData == null) return;
         OnNFTButton?.Invoke(nftData.index);
     }
 }
